@@ -17,7 +17,7 @@
                     <a class="fw-bold nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="fw-bold nav-link {{ $title === 'Course' ? 'active' : '' }}" href="#">Course</a>
+                    <a class="fw-bold nav-link {{ $title === 'Courses' ? 'active' : '' }}" href="#">Courses</a>
                 </li>
                 <li class="nav-item">
                     <a class="fw-bold nav-link {{ $title === 'News' ? 'active' : '' }}" href="#">News</a>
@@ -33,9 +33,9 @@
                     class="fw-normal px-4">Login</small>
             </a>
 
-            <a href="/register" class="btn rounded-pill me-4 text-dark" role="button" style="background-color: #FFFFFF"><small
+            {{-- <a href="/register" class="btn rounded-pill me-4 text-dark" role="button" style="background-color: #FFFFFF"><small
                 class="fw-normal px-4">Sign Up</small>
-            </a>
+            </a> --}}
         </div>
     </div>
 </nav>

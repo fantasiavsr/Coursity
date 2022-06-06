@@ -22,7 +22,7 @@
                                 {{-- <button type="button" class="close" data-dismiss="alert">×</button> --}}
                                 <strong>{{ $message }}</strong>
                             </div>
-                            <img src="uploads/{{ Session::get('file') }}" width="100px" height="100px">
+                            {{-- <img src="uploads/{{ Session::get('file') }}" width="100px" height="100px"> --}}
                         @endif
 
                         @if (count($errors) > 0)

@@ -16,11 +16,12 @@ class FileUploadController extends Controller
     public function fileUploadPost(Request $request)
     {
         $request->validate([
-            'file' => 'required|image|max:10000',
+            'file' => 'required|mimes:pdf|max:10000',
             'id' => 'required'
         ]);
 
-        $fileName = $request->id . time() . '.' . $request->file->extension();
+        /* $fileName = $request->id . time() . '.' . $request->file->extension(); */
+        $fileName = $request->id . '. ' . $request->file->getClientOriginalName();
         $request->file->move(public_path('uploads'), $fileName);
 
         return back()

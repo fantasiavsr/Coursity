@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'v9.0.0',
-        'version' => '9.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '5a0ae50dd29ac84665291e1023ac61f1713cfa48',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -128,6 +128,15 @@
             'install_path' => __DIR__ . '/../fruitcake/laravel-cors',
             'aliases' => array(),
             'reference' => '3a066e5cac32e2d1cdaacd6b961692778f37b5fc',
+            'dev_requirement' => false,
+        ),
+        'goodnesskay/laravelpdfviewer' => array(
+            'pretty_version' => 'v1.0',
+            'version' => '1.0.0.0',
+            'type' => 'laravel-package',
+            'install_path' => __DIR__ . '/../goodnesskay/laravelpdfviewer',
+            'aliases' => array(),
+            'reference' => 'f0808b98aab3c3dc080847e22ee7cc614bb6ed19',
             'dev_requirement' => false,
         ),
         'graham-campbell/result-type' => array(
@@ -383,12 +392,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v9.0.0',
-            'version' => '9.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '5a0ae50dd29ac84665291e1023ac61f1713cfa48',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -745,8 +754,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

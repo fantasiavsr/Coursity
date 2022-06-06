@@ -10,6 +10,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\adminController;
 
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\FileViewerController;
 
 
 /*
@@ -41,3 +42,4 @@ Route::post('/register', [registerController::class, 'store']);
 
 Route::get('/file-upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
 Route::post('/file-upload', [FileUploadController::class, 'fileUploadPost'])->name('file.upload.post');
+Route::get('/file-viewer', [FileViewerController::class, 'index']);

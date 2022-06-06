@@ -26,6 +26,7 @@
                     <p class="text-muted">© 2022 COURSITY / alif r. All rights reserved.</p>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
