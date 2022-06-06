@@ -8,8 +8,10 @@ class homeController extends Controller
 {
     public function index()
     {
+        $data = course::all();
         return view('user.home', [
-            'title' => "Home"
+            'title' => "Home",
+            'data' => $data,
         ]);
     }
 
@@ -18,7 +20,7 @@ class homeController extends Controller
         $data = course::all();
         return view('/home', [
             'title' => "Home",
-            'data' => $data
+            'data' => $data,
         ]);
     }
 }

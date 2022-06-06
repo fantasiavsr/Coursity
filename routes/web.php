@@ -6,6 +6,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\courseListController;
 
 use App\Http\Controllers\adminController;
 
@@ -30,6 +31,7 @@ Route::get('/', function () {
 
 Route::get('user/home', [homeController::class, 'index'])->middleware('auth');
 Route::get('home', [homeController::class, 'home']);
+Route::get('courseList', [courseListController::class, 'index']);
 
 Route::get('/login', [loginController::class, 'index'])->name('login');
 Route::post('/login', [loginController::class, 'authenticate']);
