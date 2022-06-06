@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <title>{{ $title }}</title>
-    <link rel="icon" href="img/ailogo-title.png" style="height: 100%" type="">
+    <link rel="icon" href="{{ asset("img/ailogo-title.png") }}" style="height: 100%" type="">
 </head>
 
 <body class="">

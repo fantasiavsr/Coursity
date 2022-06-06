@@ -13,7 +13,7 @@
             <li class="nav-item has-submenu ">
                 <a class="nav-link py-2 ripple text-white {{ $submenu === 'Yes' ? 'active' : '' }}" href="#"> Edit Course </a>
                 <ul class="submenu collapse" style="list-style-type: none;">
-                    <li><a class="nav-link py-2 ripple text-white {{ $title === 'List Course' ? 'active' : '' }}" href="/editHome">List Course</a></li>
+                    <li><a class="nav-link py-2 ripple text-white {{ $title === 'List Course' ? 'active' : '' }}" href="/admin-course">List Course</a></li>
 
                 </ul>
             </li>

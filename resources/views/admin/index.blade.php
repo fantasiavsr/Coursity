@@ -34,7 +34,7 @@
                                     <p class="fst-normal mt-3 mb-0" style="color: #62666A">LARAVEL 9</p>
                                 </div>
                                 <div class="col-sm-12 col-md-7">
-                                    <a href="" class="btn btn-outline-dark float-end">Detail</a>
+                                    <a href="https://github.com/fantasiavsr/pwl-tugasakhir" target="_blank" class="btn btn-outline-dark float-end">Detail</a>
                                 </div>
                             </div>
                         </div>
