@@ -13,6 +13,9 @@
                 <div class="col">
                     <h5 class="" style="font-weight: 400">Edit User</h5>
                 </div>
+                <div class="col">
+                    <a href="/admin-createuser"><button class="btn btn-success float-end">Add User</button></a>
+                </div>
             </div>
 
             <br>
@@ -46,7 +49,7 @@
                                         <td>{{ $item['role'] }}</td>
                                         <td>{{ $item['is_active'] }}</td>
                                         <td>
-                                            <form action="/admin-user/{{ $item->id }}" method="POST">
+                                            <form action="/admin-user/{{ $item->id }}" method="POST" onclick="return confirm('Are you sure?')">
                                                 @method("delete")
                                                 @csrf
                                                 <button class="btn btn-danger text-decoration-none">

@@ -18,7 +18,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link py-2 ripple text-white " href="/admin-user">Edit User</a>
+                <a class="nav-link py-2 ripple text-white {{ $title === 'Edit User' ? 'active' : '' }}" href="/admin-user">Edit User</a>
             </li>
             <li class="nav-item">
                 <form action="/logout" method="post">

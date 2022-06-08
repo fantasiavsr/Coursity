@@ -13,6 +13,9 @@
                 <div class="col">
                     <h5 class="" style="font-weight: 400">Edit Courses</h5>
                 </div>
+                <div class="col">
+                    <a href="/admin-createcourse"><button class="btn btn-success float-end">Add Course</button></a>
+                </div>
             </div>
 
             <br>
@@ -40,7 +43,7 @@
                                         <td>{{ $item['desc'] }}</td>
                                         <td>{{ $item['is_active'] }}</td>
                                         <td>
-                                            <form action="/admin-course/{{ $item->id }}" method="POST">
+                                            <form action="/admin-course/{{ $item->id }}" method="POST" onclick="return confirm('Are you sure?')">
                                                 @method("delete")
                                                 @csrf
                                                 <button class="btn btn-danger text-decoration-none">
