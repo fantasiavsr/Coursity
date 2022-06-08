@@ -1,11 +1,11 @@
 @extends('layouts\main3')
 
 @section('content')
-
     <div class="pt-5 pb-5" style="background-color: #404EED">
         <br><br>
         <div class="text-center">
-            <a href="/home"><img src="{{ asset("img/clogo-wht-box.png") }}" class="img-fluid pb-5" alt="" style="width: 150px"></a>
+            <a href="/home"><img src="{{ asset('img/clogo-wht-box.png') }}" class="img-fluid pb-5" alt=""
+                    style="width: 150px"></a>
         </div>
 
         <div class="container" style="">
@@ -31,13 +31,15 @@
 
                         </div>
 
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-lg rounded-pill mt-4 px-5 shadow-custom-lg mb-4 text-light" style="background-color: #404EED">Log In</button>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-lg rounded-pill mt-4 px-5 shadow-custom-lg mb-4 text-light"
+                            style="background-color: #404EED">Log In</button>
 
-                            <!-- Register buttons -->
-                            <div class="text-center">
-                                <p>Not a member? <a href="/register" class=" fw-bold" style="color: #404EED">Register</a></p>
-                            </div>
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Not a member? <a href="/register" class=" fw-bold" style="color: #404EED">Register</a>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>

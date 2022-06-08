@@ -44,12 +44,16 @@ Route::post('/logout', [loginController::class, 'logout']);
 
 /* admin page */
 Route::get('/admin', [adminController::class, 'index'])->middleware('auth', 'isAdmin');
-
 /* course */
 Route::get('/admin-course', [adminController::class, 'course'])->middleware('auth', 'isAdmin');
 Route::delete('/admin-course/{id}', [adminController::class, 'deleteCourse']);
-Route::get('/admin-course/edit/{id}', [adminController::class, 'mengubah'])->middleware('auth', 'isAdmin');
-Route::post('/admin-course/{id}', [adminController::class, 'ubahdata']);
+Route::get('/admin-course/edit/{id}', [adminController::class, 'mengubahCourse'])->middleware('auth', 'isAdmin');
+Route::post('/admin-course/{id}', [adminController::class, 'ubahdataCourse']);
+/* user */
+Route::get('/admin-user', [adminController::class, 'userlist'])->middleware('auth', 'isAdmin');
+/* Route::delete('/admin-course/{id}', [adminController::class, 'deleteCourse']);
+Route::get('/admin-course/edit/{id}', [adminController::class, 'mengubahCourse'])->middleware('auth', 'isAdmin');
+Route::post('/admin-course/{id}', [adminController::class, 'ubahdataCourse']); */
 
 /* register page */
 Route::get('/register', [registerController::class, 'index']);

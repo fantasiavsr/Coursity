@@ -9,7 +9,8 @@ class courseListController extends Controller
 {
     public function index()
     {
-        $data = course::all();
+        /* $data = course::all(); */
+        $data = course::whereIn('is_active', ['yes'])->get();
         return view('courseList', [
             'title' => "Course List",
             'data' => $data,

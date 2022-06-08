@@ -57,6 +57,13 @@
                                     <input type="desc" class="form-control" id="desc"
                                         name="desc" value="{{ $data['desc'] }}">
                                 </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Is Active</label>
+                                    <input type="is_active" class="form-control" id="is_active"
+                                        name="is_active" value="{{ $data['is_active'] }}">
+                                </div>
+
                                 <div class="d-grid gap-2 d-sm-flex pt-4 justify-content-end">
                                     <a href="/admin-course" class="btn btn-outline-light px-3">Cancel</a>
                                     <button type="submit" class="btn btn-outline-light px-3">Save</button>

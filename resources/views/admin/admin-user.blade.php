@@ -11,7 +11,7 @@
 
             <div class="row">
                 <div class="col">
-                    <h5 class="" style="font-weight: 400">Edit Courses</h5>
+                    <h5 class="" style="font-weight: 400">Edit User</h5>
                 </div>
             </div>
 
@@ -27,8 +27,11 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Desc</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">Role</th>
                                         <th scope="col">Is_Active</th>
                                     </tr>
                                 </thead>
@@ -36,11 +39,14 @@
                                     @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $item['id'] }}</td>
+                                        <td>{{ $item['username'] }}</td>
                                         <td>{{ $item['name'] }}</td>
-                                        <td>{{ $item['desc'] }}</td>
+                                        <td>{{ $item['email'] }}</td>
+                                        <td>{{ $item['password'] }}</td>
+                                        <td>{{ $item['role'] }}</td>
                                         <td>{{ $item['is_active'] }}</td>
                                         <td>
-                                            <form action="/admin-course/{{ $item->id }}" method="POST">
+                                            <form action="/admin-user/{{ $item->id }}" method="POST">
                                                 @method("delete")
                                                 @csrf
                                                 <button class="btn btn-danger text-decoration-none">
@@ -50,7 +56,7 @@
                                         </td>
                                         <td>
                                             {{-- <form action="" method=""> --}}
-                                                <a href="/admin-course/edit/{{ $item->id }}">
+                                                <a href="/admin-user/edit/{{ $item->id }}">
                                                     <button class="btn btn-warning text-decoration-none">
                                                         Edit
                                                     </button>
