@@ -7,6 +7,7 @@ use App\Http\Controllers\registerController;
 
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\courseListController;
+use App\Http\Controllers\courseController;
 
 use App\Http\Controllers\adminController;
 
@@ -67,3 +68,6 @@ Route::post('/register', [registerController::class, 'store']);
 Route::get('/file-upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
 Route::post('/file-upload', [FileUploadController::class, 'fileUploadPost'])->name('file.upload.post');
 Route::get('/file-viewer', [FileViewerController::class, 'index']);
+
+/* course detail test */
+Route::get('/coursedetail', [courseController::class, 'index']);

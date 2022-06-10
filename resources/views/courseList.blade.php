@@ -7,7 +7,7 @@
 
         {{-- HERO --}}
         <div class="text-secondary px-4 pt-5 pb-2" style="background-color: #404EED">
-            <div class="container pt-5 pb-5">
+            <div class="container pc-1">
 
                 <h1 class="display-5 fw-bold text-white">Course List</h1>
                 <div class="col-lg-6">
