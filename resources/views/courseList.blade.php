@@ -78,7 +78,6 @@
                                                         class="btn rounded-pill me-4 btn-outline-dark px-4">Detail
                                                     </a>
 
-
                                             </div>
                                         </div>
                                     </div>
@@ -136,8 +135,9 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $data['name'] }}</h5>
                                                 <p class="card-text">{{ $data['desc'] }}</p>
-                                                <a href="/login"
-                                                    class="btn rounded-pill me-4 btn-outline-dark px-4">Enroll</a>
+                                                <a href={{ route('coursedetail', $data->id) }}
+                                                    class="btn rounded-pill me-4 btn-outline-dark px-4">Detail
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

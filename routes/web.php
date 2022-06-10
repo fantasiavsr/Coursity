@@ -68,6 +68,7 @@ Route::post('/register', [registerController::class, 'store']);
 Route::get('/file-upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
 Route::post('/file-upload', [FileUploadController::class, 'fileUploadPost'])->name('file.upload.post');
 Route::get('/file-viewer', [FileViewerController::class, 'index']);
+Route::get('/video-viewer', [FileViewerController::class, 'indexvideo']);
 
 /* course detail test */
 /* Route::get('/coursedetailtest', [courseController::class, 'index']); */

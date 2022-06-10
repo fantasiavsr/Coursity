@@ -13,5 +13,10 @@ class FileViewerController extends Controller
         ]);
     }
 
-
+    public function indexvideo()
+    {
+        return view('file/videoViewer', [
+            'title' => "VideoViewer"
+        ]);
+    }
 }
