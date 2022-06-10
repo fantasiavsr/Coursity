@@ -68,13 +68,17 @@
                                         <div class="col-md-4">
                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
                                                 class="card-img-top" alt=""">
-                                        </div>
-                                        <div class=" col-md-8">
+                                            </div>
+                                            <div class="  col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $data['name'] }}</h5>
                                                 <p class="card-text">{{ $data['desc'] }}</p>
-                                                <a href="/login"
-                                                    class="btn rounded-pill me-4 btn-outline-dark px-4">Enroll</a>
+
+                                                    <a href={{ route('coursedetail', $data->id) }}
+                                                        class="btn rounded-pill me-4 btn-outline-dark px-4">Detail
+                                                    </a>
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -127,8 +131,8 @@
                                         <div class="col-md-2">
                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
                                                 class="card-img-top" alt=""">
-                                        </div>
-                                        <div class=" col-md-8">
+                                            </div>
+                                            <div class="  col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $data['name'] }}</h5>
                                                 <p class="card-text">{{ $data['desc'] }}</p>

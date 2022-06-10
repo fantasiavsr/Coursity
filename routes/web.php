@@ -70,4 +70,5 @@ Route::post('/file-upload', [FileUploadController::class, 'fileUploadPost'])->na
 Route::get('/file-viewer', [FileViewerController::class, 'index']);
 
 /* course detail test */
-Route::get('/coursedetail', [courseController::class, 'index']);
+/* Route::get('/coursedetailtest', [courseController::class, 'index']); */
+Route::get('/coursedetail/{course}', [courseController::class, 'coursedetail'])->name('coursedetail');
