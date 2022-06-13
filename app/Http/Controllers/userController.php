@@ -16,6 +16,24 @@ use App\Models\teacher;
 
 class userController extends Controller
 {
+    public function mycourse()
+    {
+        $user = Auth::user();
+        /* $studentcourses = studentcourse::where('user_id', $user->id)->get(); */
+        $courses = course::select('*')
+            ->join('studentcourses', 'courses.id', '=', 'studentcourses.course_id')
+            ->where('studentcourses.user_id', $user->id)
+            ->get();
+        /* $data = $courses;
+        $data2 = $courses; */
+
+        return view('user.mycourse', compact('courses'), [
+            'title' => "My Courses",
+            /* 'data' => $data, */
+            /* 'data2' => $data2, */
+        ]);
+    }
+
     public function enroll(Request $request)
     {
         $validateData = $request->validate([

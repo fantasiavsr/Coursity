@@ -26,15 +26,24 @@
                                 @endphp
                                 @if ($check === null)
                                     <button type="submit" class="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">
-                                        Join Class
+                                        Join Course
                                     </button>
+                                </form>
                                 @else
-                                    <button type="#" class="btn btn-lg disabled rounded-pill btn-outline-light px-4 me-sm-3">
-                                        Already Joined
-                                    </button>
+                                    <a href="#" class="btn btn-lg disabled rounded-pill btn-outline-light px-4 me-sm-3">
+                                        {{-- <button class="btn btn-lg rounded-pill btn-light px-4 me-sm-3"> --}}
+                                            Joined
+                                        {{-- </button> --}}
+                                    </a>
+                                    <a href="" class="btn btn-lg rounded-pill btn-light px-4 me-sm-3">
+                                        {{-- <button class="btn btn-lg rounded-pill btn-light px-4 me-sm-3"> --}}
+                                            Learn Now
+                                        {{-- </button> --}}
+                                    </a>
+
                                 @endif
 
-                            </form>
+
 
 
                             {{-- <a href="#">

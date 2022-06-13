@@ -36,7 +36,8 @@ Route::get('/', function () {
 Route::get('userhome', [homeController::class, 'index'])->middleware('auth');
 Route::get('usercourselist', [courseListController::class, 'user'])->middleware('auth');
 Route::get('/usercoursedetail/{course}', [courseController::class, 'usercoursedetail'])->name('usercoursedetail');
-Route::post('/user-', [userController::class, 'enroll']);
+Route::post('/user-enroll', [userController::class, 'enroll']);
+Route::get('/user-mycourse', [userController::class, 'mycourse'])->name('user-mycourse');
 
 /* public page */
 Route::get('home', [homeController::class, 'home'])->middleware('guest');

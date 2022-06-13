@@ -17,7 +17,7 @@
                     <a class="fw-bold nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/userhome">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="fw-bold nav-link {{ $title === 'My Courses' ? 'active' : '' }}" href="#">My Courses</a>
+                    <a class="fw-bold nav-link {{ $title === 'My Courses' ? 'active' : '' }}" href="/user-mycourse">My Courses</a>
                 </li>
                 <li class="nav-item">
                     <a class="fw-bold nav-link {{ $title === 'Course List' ? 'active' : '' }}" href="/usercourselist">Course List</a>

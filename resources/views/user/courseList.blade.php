@@ -135,7 +135,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $data['name'] }}</h5>
                                                 <p class="card-text">{{ $data['desc'] }}</p>
-                                                <a href={{ route('coursedetail', $data->id) }}
+                                                <a href="{{ route('usercoursedetail', $data->id) }}"
                                                     class="btn rounded-pill me-4 btn-outline-dark px-4">Detail
                                                 </a>
                                             </div>
