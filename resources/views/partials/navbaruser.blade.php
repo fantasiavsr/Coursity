@@ -14,10 +14,13 @@
 
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="fw-bold nav-link {{ $title === 'Home' ? 'active' : '' }}" href="#">Home</a>
+                    <a class="fw-bold nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/userhome">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="fw-bold nav-link {{ $title === 'My Courses' ? 'active' : '' }}" href="#">My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="fw-bold nav-link {{ $title === 'Course List' ? 'active' : '' }}" href="/usercourselist">Course List</a>
                 </li>
                 <li class="nav-item">
                     <a class="fw-bold nav-link {{ $title === 'My Profile' ? 'active' : '' }}" href="#">My Profile</a>

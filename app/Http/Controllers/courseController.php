@@ -50,4 +50,41 @@ class courseController extends Controller
         ]);
     }
 
+    public function usercoursedetail(course $course)
+    {
+        /* $data = course::all(); */
+        $id = $course->id;
+        /* $data = coursedetail::whereIn('course_id', [$id])->get(); */
+        /* $data = course::whereIn('id', [$id])->get(); */
+        $datacourse = course::find($id);
+        $datateacher = teacher::whereIn('course_id', [$id])->get();
+        $datamodule = module::whereIn('course_id', [$id])->get();
+        $datarequirement = requirement::whereIn('course_id', [$id])->get();
+        $dataresource = resources::whereIn('course_id', [$id])->get();
+        $datastudentcourse = studentcourse::whereIn('course_id', [$id])->get();
+
+        return view('user.coursedetail', [
+            'title' => "Course Detail",
+            /* 'id' => $request->id, */
+            'datacourse' => $datacourse,
+            'datateacher' => $datateacher,
+            'datamodule' => $datamodule,
+            'datarequirement' => $datarequirement,
+            'dataresource' => $dataresource,
+            'datastudentcourse' => $datastudentcourse,
+
+        ]);
+    }
+
+    public function courseview()
+    {
+        /* $data = course::all(); */
+       /*  $data = course::whereIn('is_active', ['yes'])->get(); */
+        return view('user.courseview', [
+            'title' => "Module 1",
+            'submenu' => "No",
+            /* 'data' => $data, */
+        ]);
+    }
+
 }

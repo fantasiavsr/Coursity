@@ -21,7 +21,7 @@ class AdminMiddleware
             if (Auth::user()->role == '1') {
                 return $next($request);
             } else {
-                return redirect('user/home');
+                return redirect('userhome');
             }
         }else{
             return redirect('/login')->with('message', 'Please login first');

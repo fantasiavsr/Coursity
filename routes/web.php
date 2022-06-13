@@ -10,6 +10,7 @@ use App\Http\Controllers\courseListController;
 use App\Http\Controllers\courseController;
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\userController;
 
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\FileViewerController;
@@ -32,10 +33,13 @@ Route::get('/', function () {
 });
 
 /* user page */
-Route::get('user/home', [homeController::class, 'index'])->middleware('auth');
+Route::get('userhome', [homeController::class, 'index'])->middleware('auth');
+Route::get('usercourselist', [courseListController::class, 'user'])->middleware('auth');
+Route::get('/usercoursedetail/{course}', [courseController::class, 'usercoursedetail'])->name('usercoursedetail');
+Route::post('/user-', [userController::class, 'enroll']);
 
 /* public page */
-Route::get('home', [homeController::class, 'home']);
+Route::get('home', [homeController::class, 'home'])->middleware('guest');
 Route::get('courseList', [courseListController::class, 'index']);
 
 /* login page */
@@ -73,3 +77,7 @@ Route::get('/video-viewer', [FileViewerController::class, 'indexvideo']);
 /* course detail test */
 /* Route::get('/coursedetailtest', [courseController::class, 'index']); */
 Route::get('/coursedetail/{course}', [courseController::class, 'coursedetail'])->name('coursedetail');
+
+
+/* test learn course */
+Route::get('/courseview', [courseController::class, 'courseview'])->name('courseview');

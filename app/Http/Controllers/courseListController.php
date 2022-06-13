@@ -17,4 +17,15 @@ class courseListController extends Controller
             'data2' => $data,
         ]);
     }
+
+    public function user()
+    {
+        /* $data = course::all(); */
+        $data = course::whereIn('is_active', ['yes'])->get();
+        return view('user.courseList', [
+            'title' => "Course List",
+            'data' => $data,
+            'data2' => $data,
+        ]);
+    }
 }
