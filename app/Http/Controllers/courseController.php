@@ -63,6 +63,8 @@ class courseController extends Controller
         $dataresource = resources::whereIn('course_id', [$id])->get();
         $datastudentcourse = studentcourse::whereIn('course_id', [$id])->get();
 
+        $studentcourse = studentcourse::all();
+
         return view('user.coursedetail', [
             'title' => "Course Detail",
             /* 'id' => $request->id, */
@@ -72,7 +74,7 @@ class courseController extends Controller
             'datarequirement' => $datarequirement,
             'dataresource' => $dataresource,
             'datastudentcourse' => $datastudentcourse,
-
+            'studentcourse' => $studentcourse,
         ]);
     }
 

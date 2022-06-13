@@ -21,10 +21,19 @@
                                 @csrf
                                 <input type="hidden" name="course_id" value="{{ $datacourse->id }}">
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                @php
+                                    $check = $studentcourse->whereIn('course_id', [$datacourse->id])->whereIn('user_id', [Auth::user()->id])->first();
+                                @endphp
+                                @if ($check === null)
+                                    <button type="submit" class="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">
+                                        Join Class
+                                    </button>
+                                @else
+                                    <button type="#" class="btn btn-lg disabled rounded-pill btn-outline-light px-4 me-sm-3">
+                                        Already Joined
+                                    </button>
+                                @endif
 
-                                <button type="submit" class="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">
-                                    Join Class
-                                </button>
                             </form>
 
 
