@@ -29,13 +29,14 @@
 
             </ul>
 
+            {{-- <a href="/register" class="btn rounded-pill me-4 text-dark" role="button" style="background-color: #FFFFFF"><small
+                class="fw-normal px-3">Register</small>
+            </a> --}}
+
             <a href="/login" class="btn rounded-pill me-4 text-dark" role="button" style="background-color: #FFFFFF"><small
                     class="fw-normal px-4">Login</small>
             </a>
 
-            {{-- <a href="/register" class="btn rounded-pill me-4 text-dark" role="button" style="background-color: #FFFFFF"><small
-                class="fw-normal px-4">Sign Up</small>
-            </a> --}}
         </div>
     </div>
 </nav>

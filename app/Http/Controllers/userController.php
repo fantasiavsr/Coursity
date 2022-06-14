@@ -34,6 +34,29 @@ class userController extends Controller
         ]);
     }
 
+    public function myprofile()
+    {
+        $user = Auth::user();
+        return view('user.myprofile', [
+            'title' => "My Profile",
+            'user' => $user,
+        ]);
+    }
+
+    public function myprofileupdate(Request $request)
+    {
+        $user = Auth::user();
+        $authid = $user->id;
+
+        $user =user::find($authid->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect('/myprofile');
+    }
+
+
     public function enroll(Request $request)
     {
         $validateData = $request->validate([

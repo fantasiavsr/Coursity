@@ -20,7 +20,7 @@
                             <button type="button" class="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">Join
                                 Now</button>
                         </a>
-                        <a href="#">
+                        <a href="/courseList">
                             <button type="button" class="btn btn-lg rounded-pill btn-dark px-4">Course List</button>
                         </a>
                     </div>

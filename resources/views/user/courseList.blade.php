@@ -97,7 +97,7 @@
                                 Learn-by-doing approach</p>
                             <a href="/login" class="btn rounded-pill me-4 btn-outline-dark">Enroll</a>
                     </div> --}}
-                <br><br><br><br>
+                <br><br>
             </div>
 
         </div>

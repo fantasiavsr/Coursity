@@ -81,4 +81,8 @@ Route::get('/coursedetail/{course}', [courseController::class, 'coursedetail'])-
 
 
 /* test learn course */
-Route::get('/courseview', [courseController::class, 'courseview'])->name('courseview');
+Route::get('/courseviewtest', [courseController::class, 'courseviewtest'])->name('courseviewtest');
+/* realization */
+Route::get('/courseview/{course}', [courseController::class, 'courseview'])->name('courseview');
+/* next module test */
+Route::get('/courseviewnext/{course}/{step}', [courseController::class, 'courseviewnext'])->name('courseviewnext');

@@ -35,7 +35,9 @@
                                             Joined
                                         {{-- </button> --}}
                                     </a>
-                                    <a href="" class="btn btn-lg rounded-pill btn-light px-4 me-sm-3">
+                                    {{-- <a href="{{ route('courseview', $datacourse->id) }}" class="btn btn-lg rounded-pill btn-light px-4 me-sm-3"> --}}
+                                    <a href="{{ route('courseviewnext', ['course'=>$datacourse->id, 'step'=>1]) }}" class="btn btn-lg rounded-pill btn-light px-4 me-sm-3">
+
                                         {{-- <button class="btn btn-lg rounded-pill btn-light px-4 me-sm-3"> --}}
                                             Learn Now
                                         {{-- </button> --}}

@@ -16,4 +16,12 @@ class module extends Model
     public function course(){
         return $this->belongsTo(course::class, 'course_id');
     }
+
+    /* public function nextstep(){
+        return module::where('step', '>', $this->step)->orderBy('step', 'asc')->first();
+    }
+
+    public function previousstep(){
+        return module::where('step', '<', $this->step)->orderBy('step', 'desc')->first();
+    } */
 }

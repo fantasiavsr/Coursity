@@ -17,9 +17,10 @@
                     </div>
                     <div class="col">
                         <div class="float-end">
-                            <a href="/register">
-                                <button type="button" class="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">Join
-                                    Class</button>
+                            <a href="/login">
+                                <button type="button" class="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">
+                                    Join Class
+                                </button>
                             </a>
                             {{-- <a href="#">
                                 <button type="button" class="btn btn-lg rounded-pill btn-dark px-4">Course List</button>
