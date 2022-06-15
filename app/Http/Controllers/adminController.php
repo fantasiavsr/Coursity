@@ -131,10 +131,10 @@ class adminController extends Controller
         $flights->username = $request->username;
         $flights->name = $request->name;
         $flights->email = $request->email;
-        $flights->password = bcrypt($request->password);
+        /* $flights->password = bcrypt($request->password); */
+        /* $flights->password = Hash::make($request->password); */
         $flights->role = $request->role;
         $flights->is_active = $request->is_active;
-        $flights->save();
 
         $flights->save();
 

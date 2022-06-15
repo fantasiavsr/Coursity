@@ -13,6 +13,7 @@ use App\Models\requirement;
 use App\Models\resources;
 use App\Models\studentcourse;
 use App\Models\teacher;
+use App\Models\completedmodule;
 
 class userController extends Controller
 {
@@ -69,6 +70,32 @@ class userController extends Controller
 
         studentcourse::create($validateData);
 
+        return redirect(url()->previous())->with('success', 'Success!');;
+    }
+
+    public function markcompleted(Request $request)
+    {
+        $validateData = $request->validate([
+            'course_id' => 'required',
+            'user_id' => 'required',
+            'module_step' => 'required',
+        ]);
+
+        // $validateData['password'] = bcrypt($validateData['password']);
+        /* $validateData['password'] = Hash::make($validateData['password']); */
+
+        completedmodule::create($validateData);
+
+        return redirect(url()->previous())->with('success', 'Success!');;
+    }
+
+    public function markincomplete(Request $request)
+    {
+        /* dd($request->all()); */
+        completedmodule::where('course_id', $request->course_id)
+            ->where('user_id', $request->user_id)
+            ->where('module_step', $request->module_step)
+            ->delete();
         return redirect(url()->previous())->with('success', 'Success!');;
     }
 }

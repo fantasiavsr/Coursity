@@ -17,14 +17,16 @@ class registerController extends Controller
 
     public function store(Request $request)
     {
+
         $validateData = $request->validate([
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            'is_active' => 'required',
         ]);
 
-        // $validateData['password'] = bcrypt($validateData['password']);
+        /* $validateData['password'] = bcrypt($validateData['password']); */
         $validateData['password'] = Hash::make($validateData['password']);
 
         User::create($validateData);

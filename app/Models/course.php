@@ -33,4 +33,8 @@ class course extends Model
     public function studentcourses(){
         return $this->hasMany(studentcourse::class);
     }
+
+    public function completedmodules(){
+        return $this->hasMany(completedmodule::class);
+    }
 }

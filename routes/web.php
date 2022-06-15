@@ -38,6 +38,8 @@ Route::get('usercourselist', [courseListController::class, 'user'])->middleware(
 Route::get('/usercoursedetail/{course}', [courseController::class, 'usercoursedetail'])->name('usercoursedetail');
 Route::post('/user-enroll', [userController::class, 'enroll']);
 Route::get('/user-mycourse', [userController::class, 'mycourse'])->name('user-mycourse');
+Route::post('/user-markcompleted', [userController::class, 'markcompleted']);
+Route::delete('/user-markincomplete', [userController::class, 'markincomplete'])->name('user-markincomplete');
 
 /* public page */
 Route::get('home', [homeController::class, 'home'])->middleware('guest');
@@ -84,5 +86,6 @@ Route::get('/coursedetail/{course}', [courseController::class, 'coursedetail'])-
 Route::get('/courseviewtest', [courseController::class, 'courseviewtest'])->name('courseviewtest');
 /* realization */
 Route::get('/courseview/{course}', [courseController::class, 'courseview'])->name('courseview');
+
 /* next module test */
 Route::get('/courseviewnext/{course}/{step}', [courseController::class, 'courseviewnext'])->name('courseviewnext');

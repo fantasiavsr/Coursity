@@ -33,7 +33,7 @@
                                         <th scope="col">Username</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Password</th>
+                                        {{-- <th scope="col">Password</th> --}}
                                         <th scope="col">Role</th>
                                         <th scope="col">Is_Active</th>
                                     </tr>
@@ -45,7 +45,7 @@
                                         <td>{{ $item['username'] }}</td>
                                         <td>{{ $item['name'] }}</td>
                                         <td>{{ $item['email'] }}</td>
-                                        <td>{{ $item['password'] }}</td>
+                                        {{-- <td>{{ $item['password'] }}</td> --}}
                                         <td>{{ $item['role'] }}</td>
                                         <td>{{ $item['is_active'] }}</td>
                                         <td>

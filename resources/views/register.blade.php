@@ -36,6 +36,8 @@
                             <input type="password" name="password" id="password" class="form-control" required>
                         </div>
 
+                        <input type="hidden" name="is_active" value="no">
+
                         {{-- <input type="hidden" id="role" name="role" value="0"> --}}
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-lg rounded-pill mt-4 px-5 shadow-custom-lg mb-4 text-light" style="background-color: #404EED">Register</button>
