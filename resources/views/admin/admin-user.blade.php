@@ -48,35 +48,89 @@
                                             {{-- <td>{{ $item['password'] }}</td> --}}
                                             <td>{{ $item['role'] }}</td>
                                             {{-- <td>{{ $item['is_active'] }}</td> --}}
-                                            <td class="d-grid gap-2 d-sm-flex justify-content-sm-center"><select class="form-select" aria-label="" id="is_active" name="is_active">
-                                                    {{-- <option selected>{{ $item['is_active'] }}</option> --}}
-                                                    <option value="yes"
-                                                        {{ $item['is_active'] === 'yes' ? 'selected' : '' }}>yes</option>
-                                                    <option value="no"
-                                                        {{ $item['is_active'] === 'no' ? 'selected' : '' }}>no</option>
-                                                </select>
-                                                <button class="btn btn-outline-dark text-decoration-none">
-                                                    <i class="bi bi-check"></i>
-                                                </button>
                                             <td>
+                                                {{-- @if ($item['role'] == 1) --}}
+                                                @if ($item['id'] == auth()->user()->id && $item['role'] == 1)
+                                                    <form class="d-grid gap-2 d-sm-flex justify-content-sm-center"
+                                                        action="/admin-user/{{ $item['id'] }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $item['id'] }}">
+                                                        <input type="hidden" name="username"
+                                                            value="{{ $item['username'] }}">
+                                                        <input type="hidden" name="name" value="{{ $item['name'] }}">
+                                                        <input type="hidden" name="email" value="{{ $item['email'] }}">
+                                                        <input type="hidden" name="role" value="{{ $item['role'] }}">
 
+                                                        <select class="form-select" aria-label="" id="is_active"
+                                                            name="is_active" readonly disabled>
+                                                            {{-- <option selected>{{ $item['is_active'] }}</option> --}}
+                                                            <option value="yes"
+                                                                {{ $item['is_active'] === 'yes' ? 'selected' : '' }}>yes
+                                                            </option>
+                                                            <option value="no"
+                                                                {{ $item['is_active'] === 'no' ? 'selected' : '' }}>no
+                                                            </option>
+                                                        </select>
+                                                        <button type="submit"
+                                                            class="btn btn-outline-dark text-decoration-none" readonly
+                                                            disabled>
+                                                            <i class="bi bi-check"></i>
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <form class="d-grid gap-2 d-sm-flex justify-content-sm-center"
+                                                        action="/admin-user/{{ $item['id'] }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $item['id'] }}">
+                                                        <input type="hidden" name="username"
+                                                            value="{{ $item['username'] }}">
+                                                        <input type="hidden" name="name" value="{{ $item['name'] }}">
+                                                        <input type="hidden" name="email"
+                                                            value="{{ $item['email'] }}">
+                                                        <input type="hidden" name="role" value="{{ $item['role'] }}">
+
+                                                        <select class="form-select" aria-label="" id="is_active"
+                                                            name="is_active">
+                                                            {{-- <option selected>{{ $item['is_active'] }}</option> --}}
+                                                            <option value="yes"
+                                                                {{ $item['is_active'] === 'yes' ? 'selected' : '' }}>yes
+                                                            </option>
+                                                            <option value="no"
+                                                                {{ $item['is_active'] === 'no' ? 'selected' : '' }}>no
+                                                            </option>
+                                                        </select>
+                                                        <button type="submit"
+                                                            class="btn btn-outline-dark text-decoration-none">
+                                                            <i class="bi bi-check"></i>
+                                                        </button>
+                                                    </form>
+                                                @endif
                                             </td>
+
                                             <td class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                                                <form action="/admin-user/{{ $item->id }}" method="POST"
-                                                    onclick="return confirm('Are you sure?')">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="btn btn-danger text-decoration-none">
-                                                        Delete
+                                                @if ($item['id'] == auth()->user()->id)
+                                                    {{-- <p class="text-success">Current Active Admin</p> --}}
+                                                    <button class="btn text-decoration-none text-success">
+                                                        Current Active Admin
                                                     </button>
-                                                </form>
-                                                {{-- <form action="" method=""> --}}
-                                                <a href="/admin-user/edit/{{ $item->id }}">
-                                                    <button class="btn btn-warning text-decoration-none">
-                                                        Edit
-                                                    </button>
-                                                </a>
-                                                {{-- </form> --}}
+                                                @else
+                                                    <form action="/admin-user/{{ $item->id }}" method="POST"
+                                                        onclick="return confirm('Are you sure?')">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="btn btn-danger text-decoration-none">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                    {{-- <form action="" method=""> --}}
+                                                    <a href="/admin-user/edit/{{ $item->id }}">
+                                                        <button class="btn btn-warning text-decoration-none">
+                                                            Edit
+                                                        </button>
+                                                    </a>
+                                                    {{-- </form> --}}
+                                                @endif
+
                                             </td>
                                         </tr>
                                     @endforeach

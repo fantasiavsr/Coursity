@@ -58,16 +58,37 @@
                                         name="password" value="{{ $data['password'] }}">
                                 </div> --}}
 
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label for="" class="form-label">Role</label>
                                     <input type="role" class="form-control" id="role"
                                         name="role" value="{{ $data['role'] }}">
-                                </div>
+                                </div> --}}
 
                                 <div class="mb-3">
+                                    <label for="" class="form-label">Role</label>
+                                    <select class="form-select" aria-label="" id="role" name="role">
+                                        {{-- <option selected>{{ $item['is_active'] }}</option> --}}
+                                        <option value="1"
+                                            {{ $data['role'] === 1 ? 'selected' : '' }}>1</option>
+                                        <option value="0"
+                                            {{ $data['role'] === 0 ? 'selected' : '' }}>0</option>
+                                    </select>
+                                </div>
+
+                                {{-- <div class="mb-3">
                                     <label for="" class="form-label">Is Active</label>
                                     <input type="is_active" class="form-control" id="is_active"
                                         name="is_active" value="{{ $data['is_active'] }}">
+                                </div> --}}
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Is Active</label>
+                                    <select class="form-select" aria-label="" id="is_active" name="is_active">
+                                        {{-- <option selected>{{ $item['is_active'] }}</option> --}}
+                                        <option value="yes"
+                                            {{ $data['is_active'] === 'yes' ? 'selected' : '' }}>yes</option>
+                                        <option value="no"
+                                            {{ $data['is_active'] === 'no' ? 'selected' : '' }}>no</option>
+                                    </select>
                                 </div>
 
                                 <div class="d-grid gap-2 d-sm-flex pt-4 justify-content-end">
