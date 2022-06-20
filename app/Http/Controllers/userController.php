@@ -32,6 +32,7 @@ class userController extends Controller
             'title' => "My Courses",
             /* 'data' => $data, */
             /* 'data2' => $data2, */
+            'user' => $user
         ]);
     }
 

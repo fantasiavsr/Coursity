@@ -59,6 +59,14 @@ Route::get('/admin-course/edit/{id}', [adminController::class, 'mengubahCourse']
 Route::post('/admin-course/{id}', [adminController::class, 'ubahdataCourse']);
 Route::get('/admin-createcourse', [adminController::class, 'createCourse']);
 Route::post('/admin-createcourse', [adminController::class, 'storeCourse']);
+
+Route::get('/admin-module', [adminController::class, 'module'])->middleware('auth', 'isAdmin');
+Route::delete('/admin-module/{id}', [adminController::class, 'deleteModule']);
+Route::get('/admin-module/edit/{id}', [adminController::class, 'mengubahModule'])->middleware('auth', 'isAdmin');
+Route::post('/admin-module/{id}', [adminController::class, 'ubahdataModule']);
+Route::get('/admin-createmodule', [adminController::class, 'createModule']);
+Route::post('/admin-createmodule', [adminController::class, 'storeModule']);
+
 /* user */
 Route::get('/admin-user', [adminController::class, 'userlist'])->middleware('auth', 'isAdmin');
 Route::delete('/admin-user/{id}', [adminController::class, 'deleteUser']);

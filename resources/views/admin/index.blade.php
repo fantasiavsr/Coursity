@@ -3,7 +3,6 @@
 @section('content')
     @include('Partials.navbar2')
 
-
     <!--Main layout-->
     <main class="bg-light" style="margin-top: 58px; margin-left:260px; margin-right: 60px">
 

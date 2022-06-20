@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\course;
 use App\Models\user;
-use App\Models\coursedetail;
+/* use App\Models\coursedetail; */
 use App\Models\module;
 use App\Models\requirement;
 use App\Models\resources;
@@ -66,6 +69,8 @@ class courseController extends Controller
 
         $studentcourse = studentcourse::all();
 
+        $user = Auth::user();
+
         return view('user.coursedetail', [
             'title' => "Course Detail",
             /* 'id' => $request->id, */
@@ -76,6 +81,7 @@ class courseController extends Controller
             'dataresource' => $dataresource,
             'datastudentcourse' => $datastudentcourse,
             'studentcourse' => $studentcourse,
+            'user' => $user,
         ]);
     }
 
@@ -142,6 +148,8 @@ class courseController extends Controller
         $studentcourse = studentcourse::all();
         $completedmodule = completedmodule::where('module_step', $step)->whereIn('course_id', [$id])->whereIn('user_id', [$userid])->first();
         $completedmodule2 = completedmodule::whereIn('course_id', [$id])->whereIn('user_id', [$userid])->get();
+
+        $user = Auth::user();
         return view('user.courseview', [
             'title' => "Module $step",
             'submenu' => "No",
@@ -157,7 +165,9 @@ class courseController extends Controller
             'previousmodule' => $previousmodule,
             'completedmodule' => $completedmodule,
             'completedmodule2' => $completedmodule2,
+            'user' => $user,
         ]);
+
     }
 
     public function courseviewtest()

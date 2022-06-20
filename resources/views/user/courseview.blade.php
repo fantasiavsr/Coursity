@@ -4,6 +4,9 @@
     @include('Partials.navbaruser2')
     @include('Partials.navbarcourse')
 
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script> --}}
 
     <!--Main layout-->
     <main class="bg-light" style="margin-top: 58px; margin-left:260px; margin-right: 60px; margin-bottom: 98px;">
@@ -73,8 +76,8 @@
                             </div>
                             @php
                                 $thismodule = DB::table('modules')
-                                        ->where('course_id', $datacourse->id)
-                                        ->get();
+                                    ->where('course_id', $datacourse->id)
+                                    ->get();
 
                                 $completed = 0;
                                 $total_module = 0;
@@ -86,7 +89,8 @@
                                 }
                             @endphp
                             <div class="row">
-                                <h4 class="card-title fw-bolder">{{ $completed }} <span style="font-weight: 100">of {{ $total_module }} Completed</span></h4>
+                                <h4 class="card-title fw-bolder">{{ $completed }} <span style="font-weight: 100">of
+                                        {{ $total_module }} Completed</span></h4>
                             </div>
                             <div class="row">
                                 <div class="col">

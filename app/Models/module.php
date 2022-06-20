@@ -9,6 +9,8 @@ class module extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function coursedetails(){
         return $this->hasMany(coursedetail::class);
     }

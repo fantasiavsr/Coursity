@@ -4,7 +4,9 @@
     @include('Partials.navbaruser')
 
     <div class="main">
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
         {{-- HERO --}}
         <div class="text-secondary px-4 pt-5 pb-2" style="background-color: #404EED">
             <div class="container pc-1">
@@ -44,29 +46,27 @@
                     {{-- <div class="card-group gap-4"> --}}
                     <div class="row row-cols-1 row-cols-md-2 g-3">
                         @foreach ($courses as $data)
-
                             <div class="col">
                                 <div class="card mb-3 shadow-sm" style="max-width: 100%;">
                                     <div class="row g-0">
                                         <div class="col-md-4">
                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
                                                 class="card-img-top" alt=""">
-                                            </div>
-                                            <div class="  col-md-8">
+                                        </div>
+                                        <div class="  col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $data['name'] }}</h5>
                                                 <p class="card-text">{{ $data['desc'] }}</p>
 
-                                                    <a href="{{ route('usercoursedetail', $data->course_id) }}"
-                                                        class="btn rounded-pill me-4 btn-outline-dark px-4">Detail
-                                                    </a>
+                                                <a href="{{ route('usercoursedetail', $data->course_id) }}"
+                                                    class="btn rounded-pill me-4 btn-outline-dark px-4">Detail
+                                                </a>
 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         @endforeach
                     </div>
 

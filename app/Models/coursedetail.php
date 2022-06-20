@@ -9,6 +9,8 @@ class coursedetail extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function course(){
         return $this->belongsTo(course::class, 'course_id');
     }

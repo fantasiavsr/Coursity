@@ -32,13 +32,35 @@
 
             </ul>
 
-            <div class="">
+            <div class="btn-group">
+                <button type="button" class="btn text-dark fw-normal" style="background-color: #FFFFFF">
+                    <img src="{{ asset('img/avatar2.png') }}" alt="" class="avatar me-2"> {{ $user->name }}
+                </button>
+                <button type="button" class="btn text-dark fw-normal dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #FFFFFF">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="btn rounded-pill text-danger fw-normal px-3"
+                                style="background-color: #FFFFFF">Log Out</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
+            {{-- <div class="">
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit" class="btn rounded-pill me-4 text-dark fw-normal px-4" style="background-color: #FFFFFF"><small>Log Out</small></button>
                 </form>
-            </div>
-
+            </div> --}}
 
         </div>
     </div>

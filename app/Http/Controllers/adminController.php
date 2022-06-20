@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\course;
+use App\Models\module;
 use App\Models\User;
 
 class adminController extends Controller
@@ -30,7 +31,7 @@ class adminController extends Controller
     public function course()
     {
         return view('admin/admin-course', [
-            'title' => "List Course",
+            'title' => "Course List",
             'submenu' => "Yes",
             'data' => course::all(),
         ]);
@@ -94,6 +95,75 @@ class adminController extends Controller
         Course::create($validateData);
 
         return redirect('/admin-course')->with('success', 'Registration Success!');;
+    }
+
+    /* Course Module */
+    public function module()
+    {
+        return view('admin/admin-module', [
+            'title' => "Courses Modules",
+            'submenu' => "Yes",
+            'data' => module::all(),
+        ]);
+    }
+
+    public function deleteModule(Request $request)
+    {
+        module::destroy($request->id);
+        return redirect('/admin-module');
+    }
+
+    public function mengubahModule(Request $request)
+    {
+        return view('admin.edit.editmodule', [
+            'title' => "Courses Modules",
+            'submenu' => "Yes",
+            'id' => $request->id,
+            'data' => module::find($request->id)
+        ]);
+    }
+
+    public function storeModule(Request $request)
+    {
+        $validateData = $request->validate([
+            'course_id' => 'required',
+            'step' => 'required',
+            'name' => 'required',
+            'type' => 'required',
+            'author' => 'required',
+            'file' => 'required',
+        ]);
+
+        // $validateData['password'] = bcrypt($validateData['password']);
+        /* $validateData['password'] = Hash::make($validateData['password']); */
+
+        module::create($validateData);
+
+        return redirect('/admin-module')->with('success', 'Added Successfully!');;
+    }
+
+    public function ubahdataModule(Request $request)
+    {
+        $flights = module::find($request->id);
+        /* $flights->id = $request->id; */
+        $flights->name = $request->name;
+        $flights->type = $request->type;
+        $flights->author = $request->author;
+        $flights->file = $request->file;
+
+        $flights->save();
+
+        return redirect('/admin-module');
+    }
+
+    public function createModule()
+    {
+        $course = course::all();
+        return view('admin.create.createmodule', [
+            'title' => "Courses Modules",
+            'submenu' => "Yes",
+            'course' => $course
+        ]);
     }
 
     /* User */
@@ -194,6 +264,5 @@ class adminController extends Controller
 
         return redirect('/login');
     }
-
 
 }

@@ -40,33 +40,45 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
-                                    <tr>
-                                        <td>{{ $item['id'] }}</td>
-                                        <td>{{ $item['username'] }}</td>
-                                        <td>{{ $item['name'] }}</td>
-                                        <td>{{ $item['email'] }}</td>
-                                        {{-- <td>{{ $item['password'] }}</td> --}}
-                                        <td>{{ $item['role'] }}</td>
-                                        <td>{{ $item['is_active'] }}</td>
-                                        <td>
-                                            <form action="/admin-user/{{ $item->id }}" method="POST" onclick="return confirm('Are you sure?')">
-                                                @method("delete")
-                                                @csrf
-                                                <button class="btn btn-danger text-decoration-none">
-                                                    Delete
+                                        <tr>
+                                            <td>{{ $item['id'] }}</td>
+                                            <td>{{ $item['username'] }}</td>
+                                            <td>{{ $item['name'] }}</td>
+                                            <td>{{ $item['email'] }}</td>
+                                            {{-- <td>{{ $item['password'] }}</td> --}}
+                                            <td>{{ $item['role'] }}</td>
+                                            {{-- <td>{{ $item['is_active'] }}</td> --}}
+                                            <td class="d-grid gap-2 d-sm-flex justify-content-sm-center"><select class="form-select" aria-label="" id="is_active" name="is_active">
+                                                    {{-- <option selected>{{ $item['is_active'] }}</option> --}}
+                                                    <option value="yes"
+                                                        {{ $item['is_active'] === 'yes' ? 'selected' : '' }}>yes</option>
+                                                    <option value="no"
+                                                        {{ $item['is_active'] === 'no' ? 'selected' : '' }}>no</option>
+                                                </select>
+                                                <button class="btn btn-outline-dark text-decoration-none">
+                                                    <i class="bi bi-check"></i>
                                                 </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            {{-- <form action="" method=""> --}}
+                                            <td>
+
+                                            </td>
+                                            <td class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                                                <form action="/admin-user/{{ $item->id }}" method="POST"
+                                                    onclick="return confirm('Are you sure?')">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn btn-danger text-decoration-none">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                                {{-- <form action="" method=""> --}}
                                                 <a href="/admin-user/edit/{{ $item->id }}">
                                                     <button class="btn btn-warning text-decoration-none">
                                                         Edit
                                                     </button>
                                                 </a>
-                                            {{-- </form> --}}
-                                        </td>
-                                    </tr>
+                                                {{-- </form> --}}
+                                            </td>
+                                        </tr>
                                     @endforeach
 
                                 </tbody>
