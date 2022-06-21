@@ -14,7 +14,7 @@
                     <h5 class="" style="font-weight: 400">Edit Courses Modules</h5>
                 </div>
                 <div class="col">
-                    <a href="/admin-createmodule"><button class="btn btn-success float-end">Add Course</button></a>
+                    <a href="/admin-createmodule"><button class="btn btn-success float-end">Add Module</button></a>
                 </div>
             </div>
 

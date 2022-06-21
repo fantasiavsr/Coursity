@@ -89,7 +89,6 @@ Route::get('/video-viewer', [FileViewerController::class, 'indexvideo']);
 /* Route::get('/coursedetailtest', [courseController::class, 'index']); */
 Route::get('/coursedetail/{course}', [courseController::class, 'coursedetail'])->name('coursedetail');
 
-
 /* test learn course */
 Route::get('/courseviewtest', [courseController::class, 'courseviewtest'])->name('courseviewtest');
 /* realization */

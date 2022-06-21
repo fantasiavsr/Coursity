@@ -64,10 +64,21 @@
                                         name="email" value="{{ $data['email'] }}">
                                 </div> --}}
 
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label for="" class="form-label">File Type</label>
                                     <input type="text" class="form-control" id="type"
                                         name="type" value="{{ $data['type'] }}">
+                                </div> --}}
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">File Type</label>
+                                    <select class="form-select" aria-label="" id="type" name="type">
+                                        {{-- <option selected>{{ $item['is_active'] }}</option> --}}
+                                        <option value="Youtube"
+                                            {{ $data['type'] === 'Youtube' ? 'selected' : '' }}>Youtube</option>
+                                        <option value="PDF"
+                                            {{ $data['type'] === 'PDF' ? 'selected' : '' }}>PDF</option>
+                                    </select>
                                 </div>
 
                                 <div class="mb-3">
@@ -86,6 +97,7 @@
                                     <a href="/admin-module" class="btn btn-outline-light px-3">Cancel</a>
                                     <button type="submit" class="btn btn-outline-light px-3">Save</button>
                                 </div>
+
                                 {{-- <button type="submit" class="btn btn-outline-light">Cancel</button>
                                 <button type="submit" class="btn btn-outline-light">Update</button> --}}
 

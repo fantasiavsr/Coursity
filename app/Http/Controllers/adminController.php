@@ -123,25 +123,6 @@ class adminController extends Controller
         ]);
     }
 
-    public function storeModule(Request $request)
-    {
-        $validateData = $request->validate([
-            'course_id' => 'required',
-            'step' => 'required',
-            'name' => 'required',
-            'type' => 'required',
-            'author' => 'required',
-            'file' => 'required',
-        ]);
-
-        // $validateData['password'] = bcrypt($validateData['password']);
-        /* $validateData['password'] = Hash::make($validateData['password']); */
-
-        module::create($validateData);
-
-        return redirect('/admin-module')->with('success', 'Added Successfully!');;
-    }
-
     public function ubahdataModule(Request $request)
     {
         $flights = module::find($request->id);
@@ -149,7 +130,12 @@ class adminController extends Controller
         $flights->name = $request->name;
         $flights->type = $request->type;
         $flights->author = $request->author;
-        $flights->file = $request->file;
+
+        if ($request->type == "Youtube") {
+            $validateData['file'] = $this->getYoutubeEmbedUrl($request->file);
+        } else {
+            $validateData['file'] = $request->file;
+        }
 
         $flights->save();
 
@@ -164,6 +150,81 @@ class adminController extends Controller
             'submenu' => "Yes",
             'course' => $course
         ]);
+    }
+
+    public function storeModule(Request $request)
+    {
+
+        /* $validateData['password'] = bcrypt($validateData['password']); */
+        /* $validateData['password'] = Hash::make($validateData['password']); */
+
+        if ($request->type == "Youtube") {
+
+            $validateData = $request->validate([
+                'course_id' => 'required',
+                'step' => 'required',
+                'name' => 'required',
+                'type' => 'required',
+                'author' => 'required',
+                'file' => 'required',
+            ]);
+
+            $validateData['file'] = $this->getYoutubeEmbedUrl($request->file);
+
+            module::create($validateData);
+
+        } else /* if ($request->type == "PDF") */ {
+
+            $validateData = $request->validate([
+                'course_id' => 'required',
+                'step' => 'required',
+                'name' => 'required',
+                'type' => 'required',
+                'author' => 'required',
+                'file' => 'required|mimes:pdf|max:10000',
+            ]);
+
+            $fileName = $request->file->getClientOriginalName();
+            $request->file->move(public_path('uploads'), $fileName);
+            $validateData['file'] =  $fileName;
+            module::create($validateData);
+        } /* else {
+            $validateData['file'] = $request->file;
+        } */
+
+
+        return redirect('/admin-module')->with('success', 'Added Successfully!');;
+    }
+
+    function getYoutubeEmbedUrl($url)
+    {
+        $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
+        $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i';
+
+        if (preg_match($longUrlRegex, $url, $matches)) {
+            $youtube_id = $matches[count($matches) - 1];
+        }
+
+        if (preg_match($shortUrlRegex, $url, $matches)) {
+            $youtube_id = $matches[count($matches) - 1];
+        }
+        return 'https://www.youtube.com/embed/' . $youtube_id;
+    }
+
+    public function storeFile(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:pdf|max:1000',
+            /* 'id' => 'required' */
+        ]);
+
+        /* $fileName = $request->id . time() . '.' . $request->file->extension(); */
+        $fileName = $request->id . '. ' . $request->file->getClientOriginalName();
+        $request->file->move(public_path('uploads'), $fileName);
+
+        return back()
+            ->with('success', 'You have successfuly upload file')
+            ->with('file', $fileName);
     }
 
     /* User */
@@ -264,5 +325,4 @@ class adminController extends Controller
 
         return redirect('/login');
     }
-
 }

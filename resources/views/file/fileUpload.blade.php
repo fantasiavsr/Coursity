@@ -48,7 +48,11 @@
                                 <div class="col-md">
                                     <label for="formFile" class="form-label">File</label>
                                     <input type="file" name="file" class="form-control">
+                                    <br>
+                                    <p>Or</p>
+                                    <input type="text" name="file" class="form-control" placeholder="Input url..">
                                 </div>
+
                                 <br><br><br><br>
                                 <button type="submit"
                                     class="btn btn-lg rounded-pill mt-4 px-5 shadow-custom-lg mb-4 text-light"

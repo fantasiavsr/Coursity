@@ -136,7 +136,7 @@ class courseController extends Controller
         /* $data = course::whereIn('id', [$id])->get(); */
         $datacourse = course::find($id);
         $datateacher = teacher::whereIn('course_id', [$id])->get();
-        $datamodule = module::whereIn('course_id', [$id])->get();
+        $datamodule = module::whereIn('course_id', [$id])->orderBy('step', 'ASC')->get();
         $datarequirement = requirement::whereIn('course_id', [$id])->get();
         $dataresource = resources::whereIn('course_id', [$id])->get();
         $datastudentcourse = studentcourse::whereIn('course_id', [$id])->get();
