@@ -28,6 +28,26 @@
                             <div class="row">
                                 <h5 class="card-title fw-bolder">Add Data</h5>
                             </div>
+
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success alert-block">
+                                    {{-- <button type="button" class="close" data-dismiss="alert">×</button> --}}
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                {{-- <img src="uploads/{{ Session::get('file') }}" width="100px" height="100px"> --}}
+                            @endif
+
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <strong>Opps!!</strong> Something went wrong.
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="row mt-3">
                                 <form action="/admin-createmodule" method="post" enctype="multipart/form-data">
                                     @csrf
@@ -96,7 +116,8 @@
                                             <span class="input-group-addon pe-3">
                                                 <input class="form-check-input" type="checkbox" id="radio">
                                             </span>
-                                            <input id="prependedcheckbox" name="file" type="file" class="form-control" disabled>
+                                            <input id="prependedcheckbox" name="file" type="file" class="form-control"
+                                                disabled>
                                         </div>
 
                                     </div>

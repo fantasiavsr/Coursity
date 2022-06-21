@@ -99,9 +99,10 @@ class courseController extends Controller
         $datarequirement = requirement::whereIn('course_id', [$id])->get();
         $dataresource = resources::whereIn('course_id', [$id])->get();
         $datastudentcourse = studentcourse::whereIn('course_id', [$id])->get();
-        $step = 1;
-
         $completedmodule = completedmodule::whereIn('course_id', [$id])->get();
+
+        /* default module number | aliases with step */
+        $step = 1;
 
         $nextmodule = module::where('step', '>', $step)->orderBy('step', 'asc')->first();
         $previousmodule = module::where('step', '<', $step)->orderBy('step', 'desc')->first();
@@ -140,6 +141,8 @@ class courseController extends Controller
         $datarequirement = requirement::whereIn('course_id', [$id])->get();
         $dataresource = resources::whereIn('course_id', [$id])->get();
         $datastudentcourse = studentcourse::whereIn('course_id', [$id])->get();
+
+         /* default module number | aliases with step */
         $step = $step;
 
         $nextmodule = module::where('step', '>', $step)->whereIn('course_id', [$id])->orderBy('step', 'asc')->first();

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\course;
@@ -157,17 +159,22 @@ class adminController extends Controller
 
         /* $validateData['password'] = bcrypt($validateData['password']); */
         /* $validateData['password'] = Hash::make($validateData['password']); */
+        $datamodule = module::whereIn('course_id', [$request->course_id])->where('step', 1)->get();
 
         if ($request->type == "Youtube") {
 
             $validateData = $request->validate([
                 'course_id' => 'required',
-                'step' => 'required',
+                'step' => 'required|numeric|between:1,99',
                 'name' => 'required',
                 'type' => 'required',
                 'author' => 'required',
                 'file' => 'required',
             ]);
+
+            if ($datamodule->count() == 0) {
+                $validateData['step'] = 1;
+            }
 
             $validateData['file'] = $this->getYoutubeEmbedUrl($request->file);
 
@@ -177,12 +184,16 @@ class adminController extends Controller
 
             $validateData = $request->validate([
                 'course_id' => 'required',
-                'step' => 'required',
+                'step' => 'required|numeric|between:1,99',
                 'name' => 'required',
                 'type' => 'required',
                 'author' => 'required',
                 'file' => 'required|mimes:pdf|max:10000',
             ]);
+
+            if ($datamodule->count() == 0) {
+                $validateData['step'] = 1;
+            }
 
             $fileName = $request->file->getClientOriginalName();
             $request->file->move(public_path('uploads'), $fileName);
@@ -191,7 +202,6 @@ class adminController extends Controller
         } /* else {
             $validateData['file'] = $request->file;
         } */
-
 
         return redirect('/admin-module')->with('success', 'Added Successfully!');;
     }
@@ -208,24 +218,30 @@ class adminController extends Controller
         if (preg_match($shortUrlRegex, $url, $matches)) {
             $youtube_id = $matches[count($matches) - 1];
         }
+
+        /* if (isset($youtube_id)) {
+            return 'https://www.youtube.com/embed/' . $youtube_id;
+        } else {
+            return redirect()->back();
+        } */
+
         return 'https://www.youtube.com/embed/' . $youtube_id;
     }
 
-    public function storeFile(Request $request)
+    /* public function storeFile(Request $request)
     {
         $request->validate([
             'file' => 'required|mimes:pdf|max:1000',
-            /* 'id' => 'required' */
+            'id' => 'required'
         ]);
 
-        /* $fileName = $request->id . time() . '.' . $request->file->extension(); */
         $fileName = $request->id . '. ' . $request->file->getClientOriginalName();
         $request->file->move(public_path('uploads'), $fileName);
 
         return back()
             ->with('success', 'You have successfuly upload file')
             ->with('file', $fileName);
-    }
+    } */
 
     /* User */
     public function userlist()
