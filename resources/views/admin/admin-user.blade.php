@@ -130,7 +130,6 @@
                                                     </a>
                                                     {{-- </form> --}}
                                                 @endif
-
                                             </td>
                                         </tr>
                                     @endforeach

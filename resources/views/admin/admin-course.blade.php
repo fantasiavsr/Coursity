@@ -37,30 +37,53 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
-                                    <tr>
-                                        <td>{{ $item['id'] }}</td>
-                                        <td>{{ $item['name'] }}</td>
-                                        <td>{{ $item['desc'] }}</td>
-                                        <td>{{ $item['is_active'] }}</td>
-                                        <td>
-                                            <form action="/admin-course/{{ $item->id }}" method="POST" onclick="return confirm('Are you sure?')">
-                                                @method("delete")
-                                                @csrf
-                                                <button class="btn btn-danger text-decoration-none">
-                                                    Delete
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            {{-- <form action="" method=""> --}}
-                                                <a href="/admin-course/edit/{{ $item->id }}">
-                                                    <button class="btn btn-warning text-decoration-none">
-                                                        Edit
+                                        <tr>
+                                            <td>{{ $item['id'] }}</td>
+                                            <td>{{ $item['name'] }}</td>
+                                            <td>{{ $item['desc'] }}</td>
+                                            {{-- <td>{{ $item['is_active'] }}</td> --}}
+                                            <td>
+                                                <form class="d-grid gap-2 d-sm-flex justify-content-sm-center"
+                                                    action="/admin-course/{{ $item['id'] }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item['id'] }}">
+                                                    <input type="hidden" name="name" value="{{ $item['name'] }}">
+                                                    <input type="hidden" name="desc" value="{{ $item['desc'] }}">
+
+                                                    <select class="form-select" aria-label="" id="is_active"
+                                                        name="is_active">
+                                                        {{-- <option selected>{{ $item['is_active'] }}</option> --}}
+                                                        <option value="yes"
+                                                            {{ $item['is_active'] === 'yes' ? 'selected' : '' }}>yes
+                                                        </option>
+                                                        <option value="no"
+                                                            {{ $item['is_active'] === 'no' ? 'selected' : '' }}>no
+                                                        </option>
+                                                    </select>
+                                                    <button type="submit"
+                                                        class="btn btn-outline-dark text-decoration-none">
+                                                        <i class="bi bi-check"></i>
                                                     </button>
-                                                </a>
-                                            {{-- </form> --}}
-                                        </td>
-                                    </tr>
+                                                </form>
+                                            </td>
+                                            <td class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                                                <form action="/admin-course/{{ $item->id }}" method="POST"
+                                                    onclick="return confirm('Are you sure?')">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn btn-danger text-decoration-none">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                                {{-- <form action="" method=""> --}}
+                                                    <a href="/admin-course/edit/{{ $item->id }}">
+                                                        <button class="btn btn-warning text-decoration-none">
+                                                            Edit
+                                                        </button>
+                                                    </a>
+                                                    {{-- </form> --}}
+                                            </td>
+                                        </tr>
                                     @endforeach
 
                                 </tbody>

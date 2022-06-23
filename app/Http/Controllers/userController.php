@@ -24,6 +24,7 @@ class userController extends Controller
         $courses = course::select('*')
             ->join('studentcourses', 'courses.id', '=', 'studentcourses.course_id')
             ->where('studentcourses.user_id', $user->id)
+            ->whereIn('is_active', ['yes'])
             ->get();
         /* $data = $courses;
         $data2 = $courses; */
