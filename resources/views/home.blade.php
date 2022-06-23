@@ -51,22 +51,31 @@
                 <div class="justify-content-centerr">
                     {{-- <div class="card-group gap-4"> --}}
                     <div class="row row-cols-1 row-cols-md-4 g-3">
-                        @foreach ($data->slice(0, 4) as $data)
+                        @foreach ($datatop->slice(0, 4) as $data)
                             <div class="col">
                                 <div class="card mb-3 shadow-sm pb-3" style="max-width: 100%;">
                                     <div class="row g-0">
 
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
-                                                class="card-img-top" alt=""">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
+                                            class="card-img-top" alt=""">
 
 
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{ $data['name'] }}</h5>
-                                                <p class="card-text">{{ $data['desc'] }}</p>
-                                                <a href={{ route('coursedetail', $data->id) }}
-                                                    class="btn rounded-pill me-4 btn-outline-dark px-4 mt-4">Detail
-                                                </a>
-                                            </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $data->name }}</h5>
+                                            @php
+                                                $datastudentcourse = App\Models\studentcourse::where(['course_id' => $data->id])->get();
+
+                                                $count = 0;
+                                                foreach ($datastudentcourse as $item) {
+                                                    $count++;
+                                                }
+                                            @endphp
+                                            <p>Total Member: {{  $count }}</p>
+                                            <p class="card-text">{{ $data->desc }}</p>
+                                            <a href={{ route('coursedetail', $data->id) }}
+                                                class="btn rounded-pill me-4 btn-outline-dark px-4 mt-4">Detail
+                                            </a>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -87,7 +96,7 @@
                                 Learn-by-doing approach</p>
                             <a href="/login" class="btn rounded-pill me-4 btn-outline-dark">Enroll</a>
                     </div> --}}
-            <br><br><br><br>
+            <br><br><br>
         </div>
 
         {{-- Featured --}}
@@ -111,8 +120,8 @@
                     <div class="col text-center">
                         <div class="row">
                             <div class="col-lg-3 mb-3">
-                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img src=""
-                                        alt="">
+                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img
+                                        src="" alt="">
                                     {{-- <div class="hover-overlay"></div> --}}
                                     <div class="hover-1-content px-5 py-4">
                                         <h3 class="hover-1-title text-uppercase font-weight-bold mb-0">UI Design
@@ -123,8 +132,8 @@
                             </div>
 
                             <div class="col-lg-3 mb-3">
-                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img src=""
-                                        alt="">
+                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img
+                                        src="" alt="">
                                     {{-- <div class="hover-overlay"></div> --}}
                                     <div class="hover-1-content px-5 py-4">
                                         <h3 class="hover-1-title text-uppercase font-weight-bold mb-0">UX Design
@@ -135,8 +144,8 @@
                             </div>
 
                             <div class="col-lg-3 mb-3">
-                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img src=""
-                                        alt="">
+                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img
+                                        src="" alt="">
                                     {{-- <div class="hover-overlay"></div> --}}
                                     <div class="hover-1-content px-5 py-4">
                                         <h3 class="hover-1-title text-uppercase font-weight-bold mb-0">Web Design
@@ -147,8 +156,8 @@
                             </div>
 
                             <div class="col-lg-3 mb-3">
-                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img src=""
-                                        alt="">
+                                <div class="hover hover-1 text-white rounded" style="background-color: #404EED"><img
+                                        src="" alt="">
                                     {{-- <div class="hover-overlay"></div> --}}
                                     <div class="hover-1-content px-5 py-4">
                                         <h3 class="hover-1-title text-uppercase font-weight-bold mb-0">Mobile

@@ -55,7 +55,7 @@
                 <div class="justify-content-center">
                     {{-- <div class="card-group gap-4"> --}}
                     <div class="row row-cols-1 row-cols-md-2 g-3">
-                        @foreach ($data->slice(0, 4) as $data)
+                        @foreach ($datatop->slice(0, 4) as $data)
                             {{-- <div class="card" style="width: 18rem;">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
                                     class="card-img-top" alt=""">
@@ -72,11 +72,19 @@
                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
                                                 class="card-img-top" alt=""">
                                         </div>
-                                        <div class="  col-md-8">
+                                        <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title">{{ $data['name'] }}</h5>
-                                                <p class="card-text">{{ $data['desc'] }}</p>
+                                                <h5 class="card-title">{{ $data->name }}</h5>
+                                                @php
+                                                    $datastudentcourse = App\Models\studentcourse::where(['course_id' => $data->id])->get();
 
+                                                    $count = 0;
+                                                    foreach ($datastudentcourse as $item) {
+                                                        $count++;
+                                                    }
+                                                @endphp
+                                                <p>Total Member: {{  $count }}</p>
+                                                <p class="card-text">{{ $data->desc }}</p>
                                                 <a href="{{ route('usercoursedetail', $data->id) }}"
                                                     class="btn rounded-pill me-4 btn-outline-dark px-4">Detail
                                                 </a>

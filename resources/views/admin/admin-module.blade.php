@@ -48,7 +48,7 @@
                                         <td>{{ $item['type'] }}</td>
                                         <td>{{ $item['author'] }}</td>
                                         <td>{{ Illuminate\Support\Str::limit($item['file'], 20) }}</td>
-                                        <td>
+                                        <td class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                                             <form action="/admin-module/{{ $item->id }}" method="POST" onclick="return confirm('Are you sure?')">
                                                 @method("delete")
                                                 @csrf
@@ -56,8 +56,6 @@
                                                     Delete
                                                 </button>
                                             </form>
-                                        </td>
-                                        <td>
                                             {{-- <form action="" method=""> --}}
                                                 <a href="/admin-module/edit/{{ $item->id }}">
                                                     <button class="btn btn-warning text-decoration-none">

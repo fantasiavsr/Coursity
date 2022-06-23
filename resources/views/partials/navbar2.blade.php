@@ -11,10 +11,10 @@
                 <a class="nav-link py-2 ripple text-white {{ $title === 'Admin' ? 'active' : '' }}" href="/admin">
                     Dashboard </a>
             </li>
-            <li class="nav-item has-submenu ">
+            <li class="nav-item has-submenu">
                 <a class="nav-link py-2 ripple text-white {{ $submenu === 'Yes' ? 'active' : '' }}" href="#">
                     Edit Courses </a>
-                <ul class="submenu collapse" style="list-style-type: none;">
+                <ul class="submenu collapse {{ $title === 'Course List' || $title === 'Courses Modules' ? 'in show' : '' }}" style="list-style-type: none;">
                     <li><a class="nav-link py-2 ripple text-white {{ $title === 'Course List' ? 'active' : '' }}"
                             href="/admin-course">Course List</a></li>
                     <li><a class="nav-link py-2 ripple text-white {{ $title === 'Courses Modules' ? 'active' : '' }}"

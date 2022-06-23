@@ -71,7 +71,7 @@
                             </div>
                             <div class="">
                                 <h1 class="fw-bold display-2" style="color: ">
-                                    {{-- count total data module --}}
+                                    {{-- count total data student --}}
                                     @php
                                         $count = 0;
                                         foreach ($datastudentcourse as $item) {
