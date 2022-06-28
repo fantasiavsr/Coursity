@@ -48,6 +48,12 @@
                                 </div>
                             @endif
 
+                            {{-- @if (session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif --}}
+
                             <div class="row mt-3">
                                 <form action="/admin-createmodule" method="post" enctype="multipart/form-data">
                                     @csrf
@@ -68,14 +74,22 @@
                                     <div class="mb-3">
                                         <label for="" class="form-label">Module Number</label>
                                         <input type="text" class="form-control" id="step" name="step"
-                                            value="">
+                                            value="{{-- {{ old('step') }} --}}">
+                                        @if (session()->has('error'))
+                                            <div class="alert alert-danger mt-1">
+                                                <strong>Opps!!</strong> Module number already exist!
+                                            </div>
+                                        @endif
+
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="" class="form-label">Module Name</label>
                                         <input type="text" class="form-control" id="name" name="name"
                                             value="">
+
                                     </div>
+
 
                                     {{-- <div class="mb-3">
                                     <label for="" class="form-label">Email;</label>

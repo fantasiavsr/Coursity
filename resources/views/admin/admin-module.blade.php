@@ -30,7 +30,8 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">Course ID</th>
+                                        <th scope="col">C_ID</th>
+                                        <th scope="col">Course Name</th>
                                         <th scope="col">Module Number</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Type</th>
@@ -43,6 +44,7 @@
                                     <tr>
                                         <td>{{ $item['id'] }}</td>
                                         <td>{{ $item['course_id'] }}</td>
+                                        <td>{{ $item->course->name }}</td>
                                         <td>{{ $item['step'] }}</td>
                                         <td>{{ $item['name'] }}</td>
                                         <td>{{ $item['type'] }}</td>

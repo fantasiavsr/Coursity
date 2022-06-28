@@ -169,7 +169,11 @@ class adminController extends Controller
 
         /* $validateData['password'] = bcrypt($validateData['password']); */
         /* $validateData['password'] = Hash::make($validateData['password']); */
+        $module = module::whereIn('course_id', [$request->course_id])->get();
         $datamodule = module::whereIn('course_id', [$request->course_id])->where('step', 1)->get();
+        $step = $request->step;
+        $nextmodule = module::where('step', '>', $step)->whereIn('course_id', [$request->course_id])->orderBy('step', 'asc')->first();
+        $previousmodule = module::where('step', '<', $step)->whereIn('course_id', [$request->course_id])->orderBy('step', 'desc')->first();
 
         if ($request->type == "Youtube") {
 
@@ -182,8 +186,14 @@ class adminController extends Controller
                 'file' => 'required',
             ]);
 
-            if ($datamodule->count() == 0) {
+            /* if ($datamodule->count() == 0) {
                 $validateData['step'] = 1;
+            } */
+            /* dd($module); */
+            foreach ($module as $value) {
+                if ($value->step == $request->step) {
+                    return redirect('/admin-createmodule')->withInput($request->all())->with('error', 'Module number already exist!');
+                }
             }
 
             $validateData['file'] = $this->getYoutubeEmbedUrl($request->file);
