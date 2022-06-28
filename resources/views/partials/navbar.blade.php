@@ -2,7 +2,7 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark pt-3 pb-3" style="background-color: #404EED">
     <div class="container">
 
-        <a class="navbar-brand" href="/home"><img class="" src="img/clogo-wht-box.png" alt="" width="100%"
+        <a class="navbar-brand" href="/home"><img class="" src="{{ asset('img/clogo-wht-box.png') }}" alt="" width="100%"
                 height="50"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

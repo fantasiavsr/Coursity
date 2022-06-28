@@ -36,6 +36,7 @@ return array(
     'App\\Models\\coursedetail' => $baseDir . '/app/Models/coursedetail.php',
     'App\\Models\\login' => $baseDir . '/app/Models/login.php',
     'App\\Models\\module' => $baseDir . '/app/Models/module.php',
+    'App\\Models\\profile' => $baseDir . '/app/Models/profile.php',
     'App\\Models\\requirement' => $baseDir . '/app/Models/requirement.php',
     'App\\Models\\resources' => $baseDir . '/app/Models/resources.php',
     'App\\Models\\studentcourse' => $baseDir . '/app/Models/studentcourse.php',

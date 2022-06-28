@@ -129,15 +129,25 @@ class adminController extends Controller
     {
         $flights = module::find($request->id);
         /* $flights->id = $request->id; */
-        $flights->name = $request->name;
-        $flights->type = $request->type;
-        $flights->author = $request->author;
+
+
+        $validateData = $request->validate([
+            'name' => 'required',
+            'type' => 'required',
+            'author' => 'required',
+            'file' => 'required',
+        ]);
 
         if ($request->type == "Youtube") {
             $validateData['file'] = $this->getYoutubeEmbedUrl($request->file);
         } else {
             $validateData['file'] = $request->file;
         }
+
+        $flights->name = $validateData['name'];
+        $flights->type = $validateData['type'];
+        $flights->author = $validateData['author'];
+        $flights->file = $validateData['file'];
 
         $flights->save();
 

@@ -34,14 +34,20 @@
 
             <div class="btn-group">
                 <button type="button" class="btn text-dark fw-normal" style="background-color: #FFFFFF">
-                    <img src="{{ asset('img/avatar2.png') }}" alt="" class="avatar me-2"> {{ $user->name }}
+                    <img
+                    @if (isset($userpp->file))
+                        src="{{ asset('uploads/profile/' . $userpp->file) }}"
+                    @else
+                        src="{{ asset('img/avatar2.png') }}" alt=""
+                    @endif
+                    alt="" class="avatar me-2"> {{ $user->name }}
                 </button>
                 <button type="button" class="btn text-dark fw-normal dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #FFFFFF">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item"href="/userprofile">My Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

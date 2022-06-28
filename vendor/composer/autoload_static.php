@@ -539,6 +539,7 @@ class ComposerStaticInitfd269fa365878eca792e3f4b370677f3
         'App\\Models\\coursedetail' => __DIR__ . '/../..' . '/app/Models/coursedetail.php',
         'App\\Models\\login' => __DIR__ . '/../..' . '/app/Models/login.php',
         'App\\Models\\module' => __DIR__ . '/../..' . '/app/Models/module.php',
+        'App\\Models\\profile' => __DIR__ . '/../..' . '/app/Models/profile.php',
         'App\\Models\\requirement' => __DIR__ . '/../..' . '/app/Models/requirement.php',
         'App\\Models\\resources' => __DIR__ . '/../..' . '/app/Models/resources.php',
         'App\\Models\\studentcourse' => __DIR__ . '/../..' . '/app/Models/studentcourse.php',

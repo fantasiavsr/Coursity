@@ -14,6 +14,7 @@ use App\Models\resources;
 use App\Models\studentcourse;
 use App\Models\teacher;
 use App\Models\completedmodule;
+use App\Models\profile;
 
 class userController extends Controller
 {
@@ -28,37 +29,96 @@ class userController extends Controller
             ->get();
         /* $data = $courses;
         $data2 = $courses; */
+        $userpp = profile::where('user_id', $user->id)->first();
 
         return view('user.mycourse', compact('courses'), [
             'title' => "My Courses",
             /* 'data' => $data, */
             /* 'data2' => $data2, */
-            'user' => $user
+            'user' => $user,
+            'userpp' => $userpp,
         ]);
     }
 
-    public function myprofile()
+    public function profile()
     {
         $user = Auth::user();
-        return view('user.myprofile', [
+        $userpp = profile::where('user_id', $user->id)->first();
+        /* $studentcourses = studentcourse::where('user_id', $user->id)->get(); */
+        $courses = course::select('*')
+            ->join('studentcourses', 'courses.id', '=', 'studentcourses.course_id')
+            ->where('studentcourses.user_id', $user->id)
+            ->whereIn('is_active', ['yes'])
+            ->get();
+
+        return view('user.userprofile', [
             'title' => "My Profile",
             'user' => $user,
+            'courses' => $courses,
+            'userpp' => $userpp
         ]);
     }
 
-    public function myprofileupdate(Request $request)
+    public function editprofile(Request $request)
     {
         $user = Auth::user();
-        $authid = $user->id;
-
-        $user =user::find($authid->id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->save();
-        return redirect('/myprofile');
+        $userpp = profile::where('user_id', $user->id)->first();
+        return view('user.edit.edituser', [
+            'title' => "My Profile",
+            'id' => $request->id,
+            'data' => user::find($request->id),
+            'user' => Auth::user(),
+            'userpp' => $userpp
+        ]);
     }
 
+    public function ubahdataUser(Request $request)
+    {
+        $flights = user::find($request->id);
+        $flights->name = $request->name;
+        $flights->email = $request->email;
+
+        $flights->save();
+
+        return redirect('/userprofile');
+    }
+
+    public function editpp(Request $request)
+    {
+        $user = Auth::user();
+        $userpp = profile::where('user_id', $user->id)->first();
+        return view('user.edit.userpp', [
+            'title' => "My Profile",
+            'id' => $request->id,
+            'data' => user::find($request->id),
+            'user' => Auth::user(),
+            'userpp' => $userpp,
+        ]);
+    }
+
+    public function ubahpp(Request $request)
+    {
+
+        $validateData = $request->validate([
+            'user_id' => 'required',
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $fileName = $request->file->getClientOriginalName();
+        $request->file->move(public_path('uploads/profile'), $fileName);
+        $validateData['file'] =  $fileName;
+
+        $data = profile::where('user_id', $request->user_id)->first();
+        if ($data) {
+            $data->update($validateData);
+        } else {
+            profile::create($validateData);
+        }
+
+        /* profile::create($validateData); */
+
+        return redirect('/userprofile')->with('success', 'Added Successfully!');;
+
+    }
 
     public function enroll(Request $request)
     {

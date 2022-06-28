@@ -1,7 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark pt-3 pb-3" style="background-color: #404EED">
     <div class="container">
 
-        <a class="navbar-brand" href="/home"><img class="" src="{{ asset('img/clogo-wht-box.png') }}"
+        <a class="navbar-brand" href="/userhome"><img class="" src="{{ asset('img/clogo-wht-box.png') }}"
                 alt="" width="100%" height="50"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -24,7 +24,7 @@
                         href="/usercourselist">Course List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="fw-bold nav-link {{ $title === 'My Profile' ? 'active' : '' }}" href="#">My
+                    <a class="fw-bold nav-link {{ $title === 'My Profile' ? 'active' : '' }}" href="/userprofile">My
                         Profile</a>
                 </li>
 
@@ -32,14 +32,20 @@
 
             <div class="btn-group">
                 <button type="button" class="btn text-dark fw-normal" style="background-color: #FFFFFF">
-                    <img src="{{ asset('img/avatar2.png') }}" alt="" class="avatar me-2"> {{ $user->name }}
+                    <img
+                    @if (isset($userpp->file))
+                        src="{{ asset('uploads/profile/' . $userpp->file) }}"
+                    @else
+                        src="{{ asset('img/avatar2.png') }}" alt=""
+                    @endif
+                    alt="" class="avatar me-2"> {{ $user->name }}
                 </button>
                 <button type="button" class="btn text-dark fw-normal dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #FFFFFF">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="/userprofile">My Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

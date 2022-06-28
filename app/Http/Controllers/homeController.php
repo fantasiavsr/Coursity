@@ -12,6 +12,7 @@ use App\Models\resources;
 use App\Models\studentcourse;
 use App\Models\teacher;
 use App\Models\completedmodule;
+use App\Models\profile;
 
 class homeController extends Controller
 {
@@ -27,11 +28,13 @@ class homeController extends Controller
        /*  $datastudentcourse = studentcourse::all(); */
 
         $user = Auth::user();
+        $userpp = profile::where('user_id', $user->id)->first();
         return view('user.home', [
             'title' => "Home",
             'data' => $data,
             'user' => $user,
             'datatop' => $data2,
+            'userpp' => $userpp,
             /* 'datastudentcourse' => $datastudentcourse, */
         ]);
     }

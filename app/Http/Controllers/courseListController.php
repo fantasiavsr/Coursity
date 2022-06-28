@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use App\Models\profile;
 
 class courseListController extends Controller
 {
@@ -54,12 +55,15 @@ class courseListController extends Controller
             ->orderByRaw('SUM(user_id) DESC')
             ->get();
 
+        $userpp = profile::where('user_id', $user->id)->first();
+
         return view('user.courseList', [
             'title' => "Course List",
             'data' => $data,
             'data2' => $data,
             'user' => $user,
             'datatop' => $data2,
+            'userpp' => $userpp,
         ]);
     }
 }

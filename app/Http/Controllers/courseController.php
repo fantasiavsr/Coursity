@@ -15,6 +15,7 @@ use App\Models\resources;
 use App\Models\studentcourse;
 use App\Models\teacher;
 use App\Models\completedmodule;
+use App\Models\profile;
 
 class courseController extends Controller
 {
@@ -70,7 +71,7 @@ class courseController extends Controller
         $studentcourse = studentcourse::all();
 
         $user = Auth::user();
-
+        $userpp = profile::where('user_id', $user->id)->first();
         return view('user.coursedetail', [
             'title' => "Course Detail",
             /* 'id' => $request->id, */
@@ -82,6 +83,7 @@ class courseController extends Controller
             'datastudentcourse' => $datastudentcourse,
             'studentcourse' => $studentcourse,
             'user' => $user,
+            'userpp' => $userpp,
         ]);
     }
 
@@ -153,6 +155,7 @@ class courseController extends Controller
         $completedmodule2 = completedmodule::whereIn('course_id', [$id])->whereIn('user_id', [$userid])->get();
 
         $user = Auth::user();
+        $userpp = profile::where('user_id', $user->id)->first();
         return view('user.courseview', [
             'title' => "Module $step",
             'submenu' => "No",
@@ -169,6 +172,7 @@ class courseController extends Controller
             'completedmodule' => $completedmodule,
             'completedmodule2' => $completedmodule2,
             'user' => $user,
+            'userpp' => $userpp,
         ]);
 
     }

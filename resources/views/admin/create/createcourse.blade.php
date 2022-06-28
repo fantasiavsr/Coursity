@@ -62,7 +62,7 @@
                                 <input type="hidden" name="is_active" value="no">
 
                                 <div class="d-grid gap-2 d-sm-flex pt-4 justify-content-end">
-                                    <a href="/admin-user" class="btn btn-outline-light px-3">Cancel</a>
+                                    <a href="/admin-course" class="btn btn-outline-light px-3">Cancel</a>
                                     <button type="submit" class="btn btn-outline-light px-3">Add</button>
                                 </div>
                                 {{-- <button type="submit" class="btn btn-outline-light">Cancel</button>

@@ -41,6 +41,12 @@ Route::get('/user-mycourse', [userController::class, 'mycourse'])->name('user-my
 Route::post('/user-markcompleted', [userController::class, 'markcompleted']);
 Route::delete('/user-markincomplete', [userController::class, 'markincomplete'])->name('user-markincomplete');
 
+Route::get('/userprofile', [userController::class, 'profile'])->middleware('auth');
+Route::get('/userprofile/edit/{id}', [userController::class, 'editprofile'])->middleware('auth');
+Route::post('/userprofile/{id}', [userController::class, 'ubahdataUser']);
+Route::get('/userpp/edit', [userController::class, 'editpp'])->middleware('auth');
+Route::post('/userpp', [userController::class, 'ubahpp']);
+
 /* public page */
 Route::get('home', [homeController::class, 'home'])->middleware('guest');
 Route::get('courseList', [courseListController::class, 'index']);
@@ -96,3 +102,5 @@ Route::get('/courseview/{course}', [courseController::class, 'courseview'])->nam
 
 /* next module test */
 Route::get('/courseviewnext/{course}/{step}', [courseController::class, 'courseviewnext'])->name('courseviewnext');
+
+
