@@ -24,7 +24,7 @@
                                 {{-- src="https://cdn.discordapp.com/attachments/418402561251344384/990101504344072202/22a833e572e2bec8d635b0623a7f3161.jpg" --}}
                                 src="{{ asset('img/avatar2.png') }}" alt=""
                             @endif
-                            class="rounded-circle" alt="..." width="100%" height="115px">
+                            class="avatar2 rounded-circle" alt="..." {{-- width="100%" height="115px" --}}>
                     </div>
                     <div>
                         <p class="text-white mb-1">My Profile</p>

@@ -162,6 +162,13 @@ hr.rounded {
     border-radius: 50%;
   }
 
+  .avatar2 {
+    vertical-align: middle;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+  }
+
 
 
 
