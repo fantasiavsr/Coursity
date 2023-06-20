@@ -31,26 +31,14 @@
                             <div class="row mt-3">
                                 <form action="/admin-course/{{ $id }}" method="post">
                                     @csrf
-                                    {{-- @method('PUT') --}}
-                                    <input type="hidden" name="id" value="{{ $data['id'] }}">
 
-                                    {{-- <div class="mb-3">
-                                    <label for="" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username"
-                                        name="username" value="{{ $data['username'] }}">
-                                </div> --}}
+                                    <input type="hidden" name="id" value="{{ $data['id'] }}">
 
                                     <div class="mb-3">
                                         <label for="" class="form-label">Name</label>
                                         <input type="text" class="form-control" id="name" name="name"
                                             value="{{ $data['name'] }}">
                                     </div>
-
-                                    {{-- <div class="mb-3">
-                                    <label for="" class="form-label">Email;</label>
-                                    <input type="email" class="form-control" id="email"
-                                        name="email" value="{{ $data['email'] }}">
-                                </div> --}}
 
                                     <div class="mb-3">
                                         <label for="" class="form-label">Desc</label>
@@ -59,12 +47,8 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        {{-- <label for="" class="form-label">Is Active</label>
-                                    <input type="is_active" class="form-control" id="is_active"
-                                        name="is_active" value="{{ $data['is_active'] }}"> --}}
                                         <label for="" class="form-label">Is Active</label>
                                         <select class="form-select" aria-label="" id="is_active" name="is_active">
-                                            {{-- <option selected>{{ $item['is_active'] }}</option> --}}
                                             <option value="yes" {{ $data['is_active'] === 'yes' ? 'selected' : '' }}>
                                                 yes</option>
                                             <option value="no" {{ $data['is_active'] === 'no' ? 'selected' : '' }}>no
@@ -76,9 +60,6 @@
                                         <a href="/admin-course" class="btn btn-outline-light px-3">Cancel</a>
                                         <button type="submit" class="btn btn-outline-light px-3">Save</button>
                                     </div>
-                                    {{-- <button type="submit" class="btn btn-outline-light">Cancel</button>
-                                <button type="submit" class="btn btn-outline-light">Update</button> --}}
-
                                 </form>
                             </div>
                         </div>

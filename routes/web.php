@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\reactController;
+
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 
@@ -27,10 +29,17 @@ use App\Http\Controllers\FileViewerController;
 |
 */
 
-/* laravel */
-Route::get('/', function () {
-    return view('welcome');
-});
+/* test */
+Route::get('test', [reactController::class, 'test']);
+
+/* test public page */
+Route::get('testHome', [reactController::class, 'testHome']);
+Route::get('testCourseList', [reactController::class, 'testCourseList']);
+
+/* test login page */
+Route::get('testLogin', [reactController::class, 'testLogin']);
+Route::post('testLogin', [reactController::class, 'testAuthenticate']);
+Route::post('testLogout', [reactController::class, 'testLogout']);
 
 /* user page */
 Route::get('userhome', [homeController::class, 'index'])->middleware('auth');
@@ -48,7 +57,8 @@ Route::get('/userpp/edit', [userController::class, 'editpp'])->middleware('auth'
 Route::post('/userpp', [userController::class, 'ubahpp']);
 
 /* public page */
-Route::get('home', [homeController::class, 'home'])->middleware('guest');
+Route::get('/', [homeController::class, 'home'])->middleware('guest');
+Route::get('/home', [homeController::class, 'home'])->middleware('guest');
 Route::get('courseList', [courseListController::class, 'index']);
 
 /* login page */

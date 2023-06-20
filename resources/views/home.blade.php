@@ -26,9 +26,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="ratio ratio-16x9">
-                <iframe class="" src="uploads/1. TI-2A.pdf" allowfullscreen></iframe>
-            </div> --}}
             <br><br>
         </div>
 
@@ -48,18 +45,14 @@
                     </div>
                 </div>
 
-                <div class="justify-content-centerr">
-                    {{-- <div class="card-group gap-4"> --}}
+                <div class="justify-content-center">
                     <div class="row row-cols-1 row-cols-md-4 g-3">
                         @foreach ($datatop->slice(0, 4) as $data)
                             <div class="col">
                                 <div class="card mb-3 shadow-sm pb-3" style="max-width: 100%;">
                                     <div class="row g-0">
-
                                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
                                             class="card-img-top" alt=""">
-
-
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $data->name }}</h5>
                                             @php
@@ -70,7 +63,7 @@
                                                     $count++;
                                                 }
                                             @endphp
-                                            <p>Total Member: {{  $count }}</p>
+                                            <p>Total Member: {{ $count }}</p>
                                             <p class="card-text">{{ $data->desc }}</p>
                                             <a href={{ route('coursedetail', $data->id) }}
                                                 class="btn rounded-pill me-4 btn-outline-dark px-4 mt-4">Detail
@@ -82,20 +75,8 @@
                             </div>
                         @endforeach
                     </div>
-
                 </div>
-
             </div>
-
-            {{-- <div class="card" style="width: 18rem;">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHSPbCQQn7P_8H2JhX2CodrqLYG_ABgdJpw&usqp=CAU"
-                            class="card-img-top" alt=""">
-                        <div class="card-body">
-                        <h5 class="card-title">UI Design</h5>
-                            <p class="card-text">Learn how to design a beautiful and engaging UI design with Figma.
-                                Learn-by-doing approach</p>
-                            <a href="/login" class="btn rounded-pill me-4 btn-outline-dark">Enroll</a>
-                    </div> --}}
             <br><br><br>
         </div>
 
@@ -178,26 +159,18 @@
         {{-- Shortcut Join --}}
         <div class="px-4 py-5">
             <br>
-
             <div class="container pt-5 pb-5" style="">
-
                 <div class="row justify-content-center text-center">
                     <h1 class="fw-bold">Ready to start your study?</h2>
                 </div>
-
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center pt-5 text-center">
                     <a href="/register">
                         <button type="button" class="btn btn-lg rounded-pill btn-dark px-4 py-3 me-sm-3"
                             style="background-color: #404EED">Join Now for Free</button>
                     </a>
-
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
 
     @include('Partials.footer')
