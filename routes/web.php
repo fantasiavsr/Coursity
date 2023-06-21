@@ -29,6 +29,8 @@ use App\Http\Controllers\FileViewerController;
 |
 */
 
+Route::get('welcome', [reactController::class, 'welcome']);
+
 /* test */
 Route::get('test', [reactController::class, 'test']);
 

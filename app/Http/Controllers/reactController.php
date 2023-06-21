@@ -12,6 +12,13 @@ use Illuminate\Http\Request;
 
 class reactController extends Controller
 {
+    public function welcome()
+    {
+        return view('welcome', [
+            'title' => "Welcome",
+        ]);
+    }
+
     public function test()
     {
         $course = course::all();
