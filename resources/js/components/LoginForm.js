@@ -38,7 +38,7 @@ const LoginForm = () => {
 
                             {/* Register buttons */}
                             <div className="text-center">
-                                <p>Not a member? <a href="/register" className="fw-bold" style={{ color: '#404EED' }}>Register</a></p>
+                                <p>Not a member? <a href="/testRegister" className="fw-bold" style={{ color: '#404EED' }}>Register</a></p>
                             </div>
                         </form>
                     </div>

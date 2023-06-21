@@ -38,9 +38,8 @@ const TopCourse = () => {
                                         <div className="col-md-8">
                                             <div className="card-body">
                                                 <h5 className="card-title">{data.name}</h5>
-                                                <p>Total Member: {data.totalMembers}</p>
                                                 <p className="card-text">{data.desc}</p>
-                                                <a href={data.route} className="btn rounded-pill me-4 btn-outline-dark px-4">Detail</a>
+                                                <a href={`/coursedetail/${data.id}`} className="btn rounded-pill me-4 btn-outline-dark px-4">Detail</a>
                                             </div>
                                         </div>
                                     </div>
@@ -80,7 +79,7 @@ const AllCourse = () => {
                                             <div className="card-body">
                                                 <h5 className="card-title">{data.name}</h5>
                                                 <p className="card-text">{data.desc}</p>
-                                                <a href={data.route} className="btn rounded-pill me-4 btn-outline-dark px-4">Detail</a>
+                                                <a href={`/coursedetail/${data.id}`}  className="btn rounded-pill me-4 btn-outline-dark px-4">Detail</a>
                                             </div>
                                         </div>
                                     </div>

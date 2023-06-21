@@ -33,6 +33,7 @@ use App\Http\Controllers\FileViewerController;
 Route::get('test', [reactController::class, 'test']);
 
 /* test public page */
+Route::get('/', [reactController::class, 'testHome']);
 Route::get('testHome', [reactController::class, 'testHome']);
 Route::get('testCourseList', [reactController::class, 'testCourseList']);
 
@@ -40,6 +41,14 @@ Route::get('testCourseList', [reactController::class, 'testCourseList']);
 Route::get('testLogin', [reactController::class, 'testLogin']);
 Route::post('testLogin', [reactController::class, 'testAuthenticate']);
 Route::post('testLogout', [reactController::class, 'testLogout']);
+
+/* test register page */
+Route::get('testRegister', [reactController::class, 'testRegister']);
+Route::post('testRegister', [reactController::class, 'testStore']);
+
+/* test admin page */
+Route::get('testAdmin', [reactController::class, 'testAdmin'])->middleware('auth', 'isAdmin');
+Route::get('testAdminCourse', [reactController::class, 'testAdminCourse'])->middleware('auth', 'isAdmin');
 
 /* user page */
 Route::get('userhome', [homeController::class, 'index'])->middleware('auth');
@@ -57,7 +66,7 @@ Route::get('/userpp/edit', [userController::class, 'editpp'])->middleware('auth'
 Route::post('/userpp', [userController::class, 'ubahpp']);
 
 /* public page */
-Route::get('/', [homeController::class, 'home'])->middleware('guest');
+/* Route::get('/', [homeController::class, 'home'])->middleware('guest'); */
 Route::get('/home', [homeController::class, 'home'])->middleware('guest');
 Route::get('courseList', [courseListController::class, 'index']);
 

@@ -72,7 +72,8 @@ class adminController extends Controller
 
         $flights->save();
 
-        return redirect('/admin-course');
+        /* return redirect('/admin-course'); */
+        return redirect('/testAdminCourse');
     }
 
     public function createCourse()
@@ -96,7 +97,8 @@ class adminController extends Controller
 
         Course::create($validateData);
 
-        return redirect('/admin-course')->with('success', 'Registration Success!');;
+       /*  return redirect('/admin-course')->with('success', 'Registration Success!');; */
+       return redirect('/testAdminCourse')->with('success', 'Registration Success!');;
     }
 
     /* Course Module */

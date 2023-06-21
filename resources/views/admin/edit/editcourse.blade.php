@@ -1,7 +1,8 @@
 @extends('layouts\main2')
 
 @section('content')
-    @include('Partials.navbar2')
+    {{-- @include('Partials.navbar2') --}}
+    @include('Partials.navbar2ex')
 
     <!--Main layout-->
     <main class="bg-light" style="margin-top: 58px; margin-left:260px; margin-right: 60px">

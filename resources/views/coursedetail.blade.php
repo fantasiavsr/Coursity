@@ -22,19 +22,12 @@
                                     Join Class
                                 </button>
                             </a>
-                            {{-- <a href="#">
-                                <button type="button" class="btn btn-lg rounded-pill btn-dark px-4">Course List</button>
-                            </a> --}}
                         </div>
                     </div>
 
                 </div>
 
             </div>
-            {{-- <div class="ratio ratio-16x9">
-                <iframe class="" src="uploads/1. TI-2A.pdf" allowfullscreen></iframe>
-            </div> --}}
-            {{-- <br><br> --}}
         </div>
 
         <div class="px-4 py-3">
@@ -49,8 +42,6 @@
                     </div>
                 </div>
                 <br><br><br>
-
-                {{-- <hr> --}}
 
                 {{-- Stats --}}
                 <div class="row">
@@ -92,9 +83,6 @@
                                     @foreach ($datateacher as $item)
                                         <li>{{ $item->name }}</li>
                                     @endforeach
-                                    {{-- <li>fantasiavsr</li>
-                                    <li>Sennzai</li>
-                                    <li>Alif</li> --}}
                                 </ul>
                             </div>
                             <div class="">
@@ -103,8 +91,6 @@
                                     @foreach ($dataresource as $item)
                                         <li>{{ $item->name }}</li>
                                     @endforeach
-                                    {{-- <li>Figma  Youtube Channel</li>
-                                    <li>Workshop Riset Informatika</li> --}}
                                 </ul>
                             </div>
                         </div>
@@ -113,7 +99,7 @@
                 <br>
                 <hr>
 
-                <br><br><br><br>{{-- <br><br><br><br> --}}
+                <br><br><br><br>
                 {{-- Requirements --}}
                 <h2 class="fw-bold pb-4">Requirements</h2>
                 <table class="table table-hover table-responsive">

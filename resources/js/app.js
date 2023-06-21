@@ -4,6 +4,9 @@ import Example from './components/Example';
 import Home from './pages/Home';
 import CourseList from './pages/CourseList';
 import Login from './pages/Login';
+import Register from './pages/Register';
+import AdminPage from './pages/admin/AdminPage';
+import AdminCourse from './pages/admin/AdminCourse';
 
 require('./bootstrap');
 require('./components/Example');
@@ -26,6 +29,18 @@ const App = () => {
     } else if (page === 'testLogin'){
         return (
             <Login />
+        );
+    } else if (page === 'testRegister'){
+        return (
+            <Register />
+        );
+    } else if (page === 'testAdmin'){
+        return (
+            <AdminPage />
+        );
+    } else if (page === 'testAdminCourse'){
+        return (
+            <AdminCourse />
         );
     }
 

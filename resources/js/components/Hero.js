@@ -10,10 +10,10 @@ const Hero = () => {
                         Bootstrap, the world’s most popular front-end open-source toolkit, featuring Sass variables and mixins, responsive
                         grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
                     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center pt-4">
-                        <a href="/register">
+                        <a href="/testRegister">
                             <button type="button" className="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">Join Now</button>
                         </a>
-                        <a href="/courseList">
+                        <a href="/testCourseList">
                             <button type="button" className="btn btn-lg rounded-pill btn-dark px-4">Course List</button>
                         </a>
                     </div>
